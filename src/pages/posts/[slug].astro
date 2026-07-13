@@ -23,7 +23,11 @@ const articleImage = post.data.image ? `/images/${post.data.image}` : '/images/o
       <p class="post-meta">{post.data.category} • {post.data.readTime}</p>
       <h1>{post.data.title}</h1>
       <p>{post.data.description}</p>
-      {post.data.image && <img src={articleImage} alt={post.data.imageAlt || post.data.title} />}
+      {post.data.image && (
+        <div class="article-image" style="min-height: 320px; overflow: hidden; border-radius: 18px; margin-bottom: 1rem;">
+          <img class="object-cover" src={articleImage} alt={post.data.imageAlt || post.data.title} />
+        </div>
+      )}
     </header>
 
     <div class="prose">

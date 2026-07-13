@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Contact" description="Contact SmartLukuFitness for questions, collaborations, or media inquiries.">
+  <section class="section">
+    <div class="container">
+      <h1>Contact</h1>
+      <p>Questions, partnerships, or guest post ideas? Reach out and I will get back when I can.</p>
+      <form class="card">
+        <label>
+          Name
+          <input type="text" name="name" />
+        </label>
+        <label>
+          Email
+          <input type="email" name="email" />
+        </label>
+        <label>
+          Message
+          <textarea rows="5" name="message"></textarea>
+        </label>
+        <button class="btn btn-primary" type="button">Send</button>
+      </form>
+    </div>
+  </section>
+</BaseLayout>

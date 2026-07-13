@@ -1,0 +1,61 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import AffiliateProductCard from '../../components/AffiliateProductCard.astro';
+import AdSlot from '../../components/AdSlot.astro';
+import EmailSignup from '../../components/EmailSignup.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts', ({ data }) => !data.draft);
+  return posts.map((post) => ({ params: { slug: post.slug }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const relatedPosts = (await getCollection('posts', ({ data }) => !data.draft))
+  .filter((entry) => entry.slug !== post.slug && entry.data.category === post.data.category)
+  .slice(0, 3);
+const articleImage = post.data.image ? `/images/${post.data.image}` : '/images/og-default.jpg';
+---
+<BaseLayout title={post.data.title} description={post.data.description} image={articleImage}>
+  <article class="article">
+    <header class="article-header">
+      <p class="post-meta">{post.data.category} • {post.data.readTime}</p>
+      <h1>{post.data.title}</h1>
+      <p>{post.data.description}</p>
+      {post.data.image && <img src={articleImage} alt={post.data.imageAlt || post.data.title} />}
+    </header>
+
+    <div class="prose">
+      <Content />
+    </div>
+
+    {post.data.affiliateProduct && <AffiliateProductCard product={post.data.affiliateProduct} />}
+    <AdSlot placement="in-content" />
+    <EmailSignup />
+
+    <section class="related">
+      <h2>Related posts</h2>
+      <div class="grid">
+        {relatedPosts.map((entry) => (
+          <article class="card">
+            <h3><a href={`/posts/${entry.slug}`}>{entry.data.title}</a></h3>
+            <p>{entry.data.description}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+  </article>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: post.data.title,
+    description: post.data.description,
+    image: [articleImage],
+    author: { '@type': 'Person', name: 'SmartLukuFitness' },
+    publisher: { '@type': 'Organization', name: 'SmartLukuFitness' },
+    datePublished: post.data.pubDate.toISOString(),
+    mainEntityOfPage: { '@type': 'WebPage', '@id': `https://smartlukufitness.com/posts/${post.slug}` }
+  })} />
+</BaseLayout>

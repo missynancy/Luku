@@ -1,0 +1,10 @@
+---
+const { product } = Astro.props;
+---
+<aside class="monet-card" aria-label="Affiliate product recommendation">
+  <h3>{product.title}</h3>
+  <p>{product.description}</p>
+  <p><strong>{product.price}</strong></p>
+  <img src={product.image} alt={product.title} />
+  <a class="btn btn-primary" href={product.link} target="_blank" rel="noreferrer">Check Price</a>
+</aside>

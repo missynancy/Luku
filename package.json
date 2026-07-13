@@ -1,0 +1,16 @@
+{
+  "name": "smartlukufitness",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/preact": "^4.1.0",
+    "astro": "^5.0.0",
+    "preact": "^10.24.0"
+  }
+}

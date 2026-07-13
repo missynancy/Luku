@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('posts')).filter((post) => !post.data.draft).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const featured = posts.filter((post) => post.data.featured).slice(0, 2);
+const recent = posts.slice(0, 4);
+---
+<BaseLayout title="Home" description="SmartLukuFitness shares simple fitness and budget-friendly nutrition advice for Kenya and beyond.">
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <p class="tag">Fitness • Nutrition • Simple habits</p>
+        <h1>Build a stronger body with budget-friendly food and home workouts.</h1>
+        <p>SmartLukuFitness helps busy people and remote workers stay healthy with practical meal ideas, easy exercises, and realistic routines that fit real life.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="/nutrition">Explore Nutrition</a>
+          <a class="btn btn-secondary" href="/fitness">Explore Fitness</a>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Why readers love this blog</h2>
+        <ul>
+          <li>Kenyan-friendly meals using affordable staples</li>
+          <li>Desk-friendly movement ideas for busy professionals</li>
+          <li>Simple SEO-friendly guidance you can apply today</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Featured posts</h2>
+      <div class="grid">
+        {featured.map((post) => (
+          <article class="card">
+            <p class="post-meta">{post.data.category} • {post.data.readTime}</p>
+            <h3><a href={`/posts/${post.slug}`}>{post.data.title}</a></h3>
+            <p>{post.data.description}</p>
+            <div class="post-tags">
+              {post.data.tags.map((tag) => <span class="tag">#{tag}</span>)}
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Recent posts</h2>
+      <div class="grid">
+        {recent.map((post) => (
+          <article class="card">
+            <p class="post-meta">{post.data.category} • {post.data.readTime}</p>
+            <h3><a href={`/posts/${post.slug}`}>{post.data.title}</a></h3>
+            <p>{post.data.description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

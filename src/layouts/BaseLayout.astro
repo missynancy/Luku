@@ -1,0 +1,49 @@
+---
+import '../styles/global.css';
+const { title, description, image } = Astro.props;
+const siteTitle = 'SmartLukuFitness';
+const pageTitle = title ? `${title} | ${siteTitle}` : siteTitle;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://smartlukufitness.com');
+const ogImage = image ? new URL(image, Astro.site || 'https://smartlukufitness.com') : new URL('/images/og-default.jpg', Astro.site || 'https://smartlukufitness.com');
+---
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description || 'Fitness and nutrition tips for busy people, budget-friendly Kenyan meals, and simple home workouts.'} />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+    <link rel="canonical" href={canonicalURL} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description || 'Fitness and nutrition tips for busy people, budget-friendly Kenyan meals, and simple home workouts.'} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content={pageTitle} />
+    <meta property="twitter:description" content={description || 'Fitness and nutrition tips for busy people, budget-friendly Kenyan meals, and simple home workouts.'} />
+    <meta property="twitter:image" content={ogImage} />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="/">SmartLukuFitness</a>
+        <nav class="nav-links" aria-label="Primary">
+          <a href="/">Home</a>
+          <a href="/nutrition">Nutrition</a>
+          <a href="/fitness">Fitness</a>
+          <a href="/about">About</a>
+          <a href="/contact">Contact</a>
+          <a href="/guide">Guide</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>© 2026 SmartLukuFitness. Practical fitness and nutrition for real life.</p>
+      </div>
+    </footer>
+  </body>
+</html>

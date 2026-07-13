@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('posts')).filter((post) => !post.data.draft && post.data.category === 'Fitness').sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+<BaseLayout title="Fitness" description="Home workouts, fat loss routines, and fitness advice for busy people who want results without a gym.">
+  <section class="section">
+    <div class="container">
+      <h1>Fitness</h1>
+      <p>Low-cost, no-gym workouts that fit in small spaces and busy schedules.</p>
+      <div class="grid">
+        {posts.map((post) => (
+          <article class="card">
+            <h2><a href={`/posts/${post.slug}`}>{post.data.title}</a></h2>
+            <p>{post.data.description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

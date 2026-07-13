@@ -38,6 +38,16 @@ img { max-width: 100%; height: auto; display: block; }
 .article { max-width: 760px; margin: 0 auto; padding: 2rem 0 3rem; }
 .article-header { margin-bottom: 1.5rem; }
 .article-header img { border-radius: 18px; margin-bottom: 1rem; }
+
+/* Affiliate carousel styles */
+.affiliate-carousel { position: relative; overflow: hidden; border-radius: 12px; margin: 0.8rem 0; }
+.affiliate-carousel .slides { display: flex; transition: transform 0.5s ease; }
+.affiliate-carousel img { width: 100%; flex: 0 0 100%; display: block; }
+.affiliate-carousel .controls { position: absolute; top: 50%; left: 0; right: 0; display: flex; justify-content: space-between; transform: translateY(-50%); padding: 0 0.5rem; pointer-events: none; }
+.affiliate-carousel .controls button { pointer-events: auto; background: rgba(0,0,0,0.45); color: white; border: 0; padding: 0.35rem 0.55rem; border-radius: 8px; cursor: pointer; }
+.affiliate-carousel .dots { display:flex; gap:0.4rem; justify-content:center; margin-top:0.6rem; }
+.affiliate-carousel .dots button { background: #e6e7e3; border: none; width:10px; height:10px; border-radius:50%; cursor:pointer; }
+.affiliate-carousel .dots button.active { background: var(--accent); }
 .prose h2, .prose h3 { margin-top: 1.7rem; }
 .prose p, .prose li { font-size: 1.02rem; }
 .related { margin-top: 2rem; }

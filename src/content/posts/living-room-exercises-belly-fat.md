@@ -5,11 +5,11 @@ pubDate: 2026-07-11
 category: Fitness
 tags:
   - home workout
-  - belly fat
+  - belly fat`
   - no gym
   - desk break
 readTime: 5 min read
-image: hero-image.jpg
+image: yoga ma 2.jpg
 imageAlt: A person doing a workout in a living room
 featured: true
 affiliateProduct:

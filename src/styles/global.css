@@ -41,7 +41,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* Affiliate carousel styles */
 .affiliate-carousel { position: relative; overflow: hidden; border-radius: 12px; margin: 0.8rem 0; }
-.affiliate-carousel .slides { display: flex; transition: transform 0.5s ease; }
+.affiliate-carousel .slides { display: flex; transition: transform 0.5s ease; width: 100%; }
 .affiliate-carousel img { width: 100%; flex: 0 0 100%; display: block; }
 .affiliate-carousel .controls { position: absolute; top: 50%; left: 0; right: 0; display: flex; justify-content: space-between; transform: translateY(-50%); padding: 0 0.5rem; pointer-events: none; }
 .affiliate-carousel .controls button { pointer-events: auto; background: rgba(0,0,0,0.45); color: white; border: 0; padding: 0.35rem 0.55rem; border-radius: 8px; cursor: pointer; }

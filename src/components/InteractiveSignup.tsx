@@ -1,6 +1,7 @@
+import type { JSX } from 'preact';
 import { useState } from 'preact/hooks';
 
-export default function InteractiveSignup() {
+export default function InteractiveSignup(): JSX.Element {
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
 

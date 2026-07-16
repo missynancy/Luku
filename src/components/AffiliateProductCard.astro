@@ -6,22 +6,23 @@ const { product } = Astro.props;
   <p>{product.description}</p>
   <p><strong>{product.price}</strong></p>
 
-  <div class="affiliate-carousel" data-carousel>
-    <div class="slides">
-      <img class="object-cover" src="/images/yoga%201.jpg" alt="Yoga 1" />
-      <img class="object-cover" src="/images/yoga2.jpg" alt="Yoga 2" />
-      <img class="object-cover" src="/images/yoga%20mat1.jpg" alt="Yoga mat 1" />
-      <img class="object-cover" src="/images/yoga%20ma%202.jpg" alt="Yoga mat 2" />
+  <div class="affiliate-gallery" data-gallery>
+    <div class="main-image">
+      <img src="/images/yoga%201.jpg" alt="Yoga 1" data-current />
     </div>
-    <div class="controls">
-      <button type="button" class="prev" aria-label="Previous">‹</button>
-      <button type="button" class="next" aria-label="Next">›</button>
-    </div>
-    <div class="dots" aria-hidden="false">
-      <button data-dot></button>
-      <button data-dot></button>
-      <button data-dot></button>
-      <button data-dot></button>
+    <div class="thumb-row" role="tablist" aria-label="Product thumbnails">
+      <button type="button" class="thumb active" data-thumb="0" aria-label="Show Yoga 1">
+        <img src="/images/yoga%201.jpg" alt="Yoga 1" />
+      </button>
+      <button type="button" class="thumb" data-thumb="1" aria-label="Show Yoga 2">
+        <img src="/images/yoga2.jpg" alt="Yoga 2" />
+      </button>
+      <button type="button" class="thumb" data-thumb="2" aria-label="Show Yoga mat 1">
+        <img src="/images/yoga%20mat1.jpg" alt="Yoga mat 1" />
+      </button>
+      <button type="button" class="thumb" data-thumb="3" aria-label="Show Yoga mat 2">
+        <img src="/images/yoga%20ma%202.jpg" alt="Yoga mat 2" />
+      </button>
     </div>
   </div>
 
@@ -29,32 +30,27 @@ const { product } = Astro.props;
 
   <script>
     (function () {
-      const initCarousel = (carousel) => {
-        const slides = carousel.querySelector('.slides');
-        const imgs = slides.querySelectorAll('img');
-        const prev = carousel.querySelector('.prev');
-        const next = carousel.querySelector('.next');
-        const dots = Array.from(carousel.querySelectorAll('[data-dot]'));
-        if (!slides || !imgs.length || !prev || !next || !dots.length) return;
-        let index = 0;
-        const show = (i) => {
-          index = (i + imgs.length) % imgs.length;
-          slides.style.transform = `translateX(-${index * 100}%)`;
-          dots.forEach((d, idx) => d.classList.toggle('active', idx === index));
+      const initGallery = (gallery) => {
+        const currentImage = gallery.querySelector('[data-current]');
+        const thumbs = Array.from(gallery.querySelectorAll('[data-thumb]'));
+        if (!currentImage || thumbs.length === 0) return;
+
+        const show = (index) => {
+          const thumb = thumbs[index];
+          const img = thumb.querySelector('img');
+          if (!img) return;
+          currentImage.src = img.src;
+          currentImage.alt = img.alt;
+          thumbs.forEach((button, idx) => button.classList.toggle('active', idx === index));
         };
-        prev.addEventListener('click', () => show(index - 1));
-        next.addEventListener('click', () => show(index + 1));
-        dots.forEach((d, idx) => d.addEventListener('click', () => show(idx)));
-        let timer = setInterval(() => show(index + 1), 4000);
-        carousel.addEventListener('mouseenter', () => clearInterval(timer));
-        carousel.addEventListener('mouseleave', () => {
-          clearInterval(timer);
-          timer = setInterval(() => show(index + 1), 4000);
+
+        thumbs.forEach((button, index) => {
+          button.addEventListener('click', () => show(index));
         });
-        show(0);
       };
+
       const start = () => {
-        document.querySelectorAll('.affiliate-carousel').forEach(initCarousel);
+        document.querySelectorAll('[data-gallery]').forEach(initGallery);
       };
       if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', start);

@@ -42,6 +42,7 @@ img { display: block; max-width: 100%; }
 .hero-media {
   position: relative;
   display: block;
+  max-width: 520px;
 }
 
 /* Container hosting the split effect */

@@ -15,7 +15,7 @@ const { Content } = await render(post);
 const relatedPosts = (await getCollection('posts', ({ data }) => !data.draft))
   .filter((entry) => entry.slug !== post.slug && entry.data.category === post.data.category)
   .slice(0, 3);
-const articleImage = post.data.image ? `/images/${post.data.image}` : '/images/og-default.jpg';
+const articleImage = post.data.image ? `${import.meta.env.BASE_URL}images/${post.data.image}` : `${import.meta.env.BASE_URL}images/og-default.jpg`;
 ---
 <BaseLayout title={post.data.title} description={post.data.description} image={articleImage}>
   <article class="article">

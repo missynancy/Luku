@@ -43,7 +43,7 @@ const articleImage = post.data.image ? `${import.meta.env.BASE_URL}/images/${pos
       <div class="grid">
         {relatedPosts.map((entry) => (
           <article class="card">
-            <h3><a href={`/posts/${entry.slug}`}>{entry.data.title}</a></h3>
+            <h3><a href={`${import.meta.env.BASE_URL}/posts/${entry.slug}`}>{entry.data.title}</a></h3>
             <p>{entry.data.description}</p>
           </article>
         ))}

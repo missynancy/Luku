@@ -12,7 +12,7 @@ const posts = (await getCollection('posts')).filter((post) => !post.data.draft &
       <div class="grid">
         {posts.map((post) => (
           <article class="card">
-            <h2><a href={`/posts/${post.slug}`}>{post.data.title}</a></h2>
+            <h2><a href={`${import.meta.env.BASE_URL}/posts/${post.slug}`}>{post.data.title}</a></h2>
             <p>{post.data.description}</p>
           </article>
         ))}

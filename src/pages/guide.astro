@@ -1,15 +1,34 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
-<BaseLayout title="Download Guide" description="Download the SmartLukuFitness meal-plan guide and start building better habits today.">
+<BaseLayout title="Download Guide" description="Download the free SmartLukuFitness meal-plan guide and start building better habits today.">
   <section class="section">
     <div class="container">
       <h1>Downloadable PDF Guide</h1>
-      <p>A paid meal-plan guide is in development. This page will include a secure payment and download link when it is ready.</p>
+      <p>A free 7-day high-protein meal plan, grocery list, and home workout guide — built around affordable Kenyan staples like ndengu, omena, eggs, sukuma wiki, and beans.</p>
+
       <div class="card">
-        <h2>Coming soon</h2>
-        <p>A premium guide with meal plans, grocery ideas, and simple routines will live here.</p>
+        <h2>Free Downloadable Guide</h2>
+        <p>A 7-day high-protein meal plan, grocery list, and simple home workouts — all built around affordable Kenyan staples. No cost, no signup.</p>
+        <a href={`${import.meta.env.BASE_URL}/downloads/SmartLukuFitness-Budget-Guide.pdf`}
+           download
+           class="btn-primary">
+          Download the Free PDF Guide
+        </a>
       </div>
+
+      <div class="card">
+        <h2>What's inside</h2>
+        <ul>
+          <li>A 7-day high-protein meal plan using local staples</li>
+          <li>A consolidated grocery list with a weekly budget estimate</li>
+          <li>Three home workout routines — beginner, strength, and a desk-break stretch</li>
+          <li>Tips for staying consistent, plus a quick FAQ</li>
+        </ul>
+      </div>
+
+      <p class="disclaimer">Health disclaimer: This site provides general education only and is not a substitute for advice, diagnosis, or treatment from a qualified healthcare professional.</p>
+      <p class="author-bio">Curated by Nancy Wambui, a Tech-Savvy Virtual Assistant and Frontend Developer building digital operation assets in public.</p>
     </div>
   </section>
 </BaseLayout>

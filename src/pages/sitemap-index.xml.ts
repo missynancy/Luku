@@ -2,8 +2,23 @@ import { getCollection } from 'astro:content';
 
 export async function GET() {
   const posts = (await getCollection('posts')).filter((post) => !post.data.draft);
-  const urls = posts.map((post) => `  <url><loc>https://missynancy.github.io/Luku/posts/${post.slug}</loc></url>`).join('\n');
-  return new Response(`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`, {
-    headers: { 'Content-Type': 'application/xml; charset=utf-8' }
-  });
+
+  const staticPages = ['', 'nutrition', 'fitness', 'about', 'contact', 'guide'];
+
+  const staticUrls = staticPages.map(
+    (page) => `  <url><loc>https://missynancy.github.io/Luku/${page}</loc></url>`
+  );
+
+  const postUrls = posts.map(
+    (post) => `  <url><loc>https://missynancy.github.io/Luku/posts/${post.slug}</loc></url>`
+  );
+
+  const urls = [...staticUrls, ...postUrls].join('\n');
+
+  return new Response(
+    `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`,
+    {
+      headers: { 'Content-Type': 'application/xml; charset=utf-8' }
+    }
+  );
 }

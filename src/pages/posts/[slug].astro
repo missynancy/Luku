@@ -39,28 +39,60 @@ const articleImageURL = new URL(articleImage, siteURL);
     {post.data.affiliateProduct && <AffiliateProductCard product={post.data.affiliateProduct} />}
     <EmailSignup />
 
-    <section class="related">
-      <h2>Related posts</h2>
-      <div class="grid">
-        {relatedPosts.map((entry) => (
-          <article class="card">
-            <h3><a href={`${import.meta.env.BASE_URL}/posts/${entry.slug}`}>{entry.data.title}</a></h3>
-            <p>{entry.data.description}</p>
-          </article>
-        ))}
-      </div>
+    <section class="related-posts">
+      <h2>Explore more</h2>
+      <a href="/Luku/nutrition">More nutrition guides →</a>
+      <a href="/Luku/guide">Full SmartLukuFitness guide →</a>
     </section>
   </article>
 
   <script is:inline type="application/ld+json" set:html={JSON.stringify({
     '@context': 'https://schema.org',
-    '@type': 'Article',
-    headline: post.data.title,
-    description: post.data.description,
-    image: [articleImageURL.href],
-    author: { '@type': 'Person', name: 'SmartLukuFitness' },
-    publisher: { '@type': 'Organization', name: 'SmartLukuFitness' },
-    datePublished: post.data.pubDate.toISOString(),
-    mainEntityOfPage: { '@type': 'WebPage', '@id': articleURL.href }
+    '@graph': [
+      {
+        '@type': 'Article',
+        headline: post.data.title,
+        description: post.data.description,
+        image: [articleImageURL.href],
+        author: { '@type': 'Person', name: 'Nancy Wambui' },
+        publisher: { '@type': 'Organization', name: 'SmartLukuFitness' },
+        datePublished: post.data.pubDate.toISOString(),
+        mainEntityOfPage: articleURL.href
+      },
+      {
+        '@type': 'HowTo',
+        name: 'Sample High Protein Day on a Budget',
+        step: [
+          { '@type': 'HowToStep', name: 'Breakfast', text: 'Boiled eggs, fruit, and a cup of plain yogurt.' },
+          { '@type': 'HowToStep', name: 'Lunch', text: 'Omena with sukuma wiki and ugali.' },
+          { '@type': 'HowToStep', name: 'Dinner', text: 'Bean stew with greens and a small portion of rice.' }
+        ]
+      },
+      {
+        '@type': 'FAQPage',
+        mainEntity: [
+          {
+            '@type': 'Question',
+            name: 'Is ugali high in protein?',
+            acceptedAnswer: { '@type': 'Answer', text: 'Not on its own — ugali is mostly carbohydrate. This plan pairs it with a protein source like omena, beans, or chicken so the meal stays high-protein overall.' }
+          },
+          {
+            '@type': 'Question',
+            name: 'How much does this meal plan cost per week?',
+            acceptedAnswer: { '@type': 'Answer', text: "It's built around bulk-bought staples like ndengu, omena, eggs, sukuma wiki, ugali, and beans, keeping weekly grocery costs modest compared to imported protein sources." }
+          },
+          {
+            '@type': 'Question',
+            name: 'Can I follow this plan if I don't eat meat?',
+            acceptedAnswer: { '@type': 'Answer', text: 'Yes — ndengu, beans, eggs, and yogurt already cover most of the protein without meat. Omena is the one animal-based staple and can be swapped for more beans or eggs.' }
+          },
+          {
+            '@type': 'Question',
+            name: 'How quickly will I see results?',
+            acceptedAnswer: { '@type': 'Answer', text: 'Most people notice energy and appetite changes within two to three weeks, with visible weight changes following if portions and consistency are maintained.' }
+          }
+        ]
+      }
+    ]
   })} />
 </BaseLayout>

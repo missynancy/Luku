@@ -2,7 +2,6 @@
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import AffiliateProductCard from '../../components/AffiliateProductCard.astro';
-import AdSlot from '../../components/AdSlot.astro';
 import EmailSignup from '../../components/EmailSignup.astro';
 
 export async function getStaticPaths() {
@@ -15,7 +14,10 @@ const { Content } = await render(post);
 const relatedPosts = (await getCollection('posts', ({ data }) => !data.draft))
   .filter((entry) => entry.slug !== post.slug && entry.data.category === post.data.category)
   .slice(0, 3);
-const articleImage = post.data.image ? `${import.meta.env.BASE_URL}/images/${post.data.image}` : `${import.meta.env.BASE_URL}/images/og-default.jpg`;
+const articleImage = post.data.image ? `${import.meta.env.BASE_URL}/images/${post.data.image}` : `${import.meta.env.BASE_URL}/images/hero-image.svg`;
+const siteURL = Astro.site || 'https://missynancy.github.io';
+const articleURL = new URL(`${import.meta.env.BASE_URL}/posts/${post.slug}/`, siteURL);
+const articleImageURL = new URL(articleImage, siteURL);
 ---
 <BaseLayout title={post.data.title} description={post.data.description} image={articleImage}>
   <article class="article">
@@ -35,7 +37,6 @@ const articleImage = post.data.image ? `${import.meta.env.BASE_URL}/images/${pos
     </div>
 
     {post.data.affiliateProduct && <AffiliateProductCard product={post.data.affiliateProduct} />}
-    <AdSlot placement="in-content" />
     <EmailSignup />
 
     <section class="related">
@@ -51,15 +52,15 @@ const articleImage = post.data.image ? `${import.meta.env.BASE_URL}/images/${pos
     </section>
   </article>
 
-  <script type="application/ld+json" set:html={JSON.stringify({
+  <script is:inline type="application/ld+json" set:html={JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: post.data.title,
     description: post.data.description,
-    image: [articleImage],
+    image: [articleImageURL.href],
     author: { '@type': 'Person', name: 'SmartLukuFitness' },
     publisher: { '@type': 'Organization', name: 'SmartLukuFitness' },
     datePublished: post.data.pubDate.toISOString(),
-    mainEntityOfPage: { '@type': 'WebPage', '@id': `https://smartlukufitness.com/posts/${post.slug}` }
+    mainEntityOfPage: { '@type': 'WebPage', '@id': articleURL.href }
   })} />
 </BaseLayout>

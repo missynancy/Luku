@@ -3,8 +3,10 @@ import '../styles/global.css';
 const { title, description, image } = Astro.props;
 const siteTitle = 'SmartLukuFitness';
 const pageTitle = title ? `${title} | ${siteTitle}` : siteTitle;
-const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://smartlukufitness.com');
-const ogImage = image ? new URL(image, Astro.site || 'https://smartlukufitness.com') : new URL(`${import.meta.env.BASE_URL}/images/og-default.jpg`, Astro.site || 'https://smartlukufitness.com');
+const siteURL = Astro.site || 'https://missynancy.github.io';
+const canonicalPath = Astro.url.pathname === import.meta.env.BASE_URL ? `${Astro.url.pathname}/` : Astro.url.pathname;
+const canonicalURL = new URL(canonicalPath, siteURL);
+const ogImage = image ? new URL(image, siteURL) : new URL(`${import.meta.env.BASE_URL}/images/hero-image.svg`, siteURL);
 ---
 <html lang="en">
   <head>
@@ -25,6 +27,7 @@ const ogImage = image ? new URL(image, Astro.site || 'https://smartlukufitness.c
     <meta property="twitter:image" content={ogImage} />
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <header class="site-header">
       <div class="container nav-wrap">
         <a class="brand" href={import.meta.env.BASE_URL}>SmartLukuFitness</a>
@@ -38,11 +41,12 @@ const ogImage = image ? new URL(image, Astro.site || 'https://smartlukufitness.c
         </nav>
       </div>
     </header>
-    <main>
+    <main id="main-content">
       <slot />
     </main>
     <footer class="site-footer">
       <div class="container footer-inner">
+        <p>Health information is for general education and is not a substitute for professional medical advice.</p>
         <p>© 2026 SmartLukuFitness. Practical fitness and nutrition for real life.</p>
       </div>
     </footer>

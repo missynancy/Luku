@@ -10,15 +10,9 @@ tags:
   - protein
   - budget meals
 readTime: 6 min read
-image: hero-image.jpg
+image: meal1.jpg
 imageAlt: A simple Kenyan meal plate with eggs, greens, and ugali
 featured: true
-affiliateProduct:
-  title: Adjustable Dumbbells
-  description: A compact set for home strength training on a budget.
-  price: KES 8,500
-  image: /images/affiliate-product.jpg
-  link: https://example.com
 ---
 
 ## Why this plan works

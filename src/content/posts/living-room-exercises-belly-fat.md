@@ -5,19 +5,13 @@ pubDate: 2026-07-11
 category: Fitness
 tags:
   - home workout
-  - belly fat`
+  - belly fat
   - no gym
   - desk break
 readTime: 5 min read
 image: yogama2.jpg
 imageAlt: A person doing a workout in a living room
 featured: true
-affiliateProduct:
-  title: Yoga Mat
-  description: A non-slip mat for floor workouts and stretching at home.
-  price: KES 2,500
-  image: /images/affiliate-product.jpg
-  link: https://example.com
 ---
 
 ## Start with a simple routine

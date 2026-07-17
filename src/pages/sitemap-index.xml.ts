@@ -1,16 +1,20 @@
 import { getCollection } from 'astro:content';
 
+const siteURL = 'https://missynancy.github.io';
+const basePath = '/Luku';
+
 export async function GET() {
   const posts = (await getCollection('posts')).filter((post) => !post.data.draft);
 
   const staticPages = ['', 'nutrition', 'fitness', 'about', 'contact', 'guide'];
 
-  const staticUrls = staticPages.map(
-    (page) => `  <url><loc>https://missynancy.github.io/Luku/${page}</loc></url>`
-  );
+  const staticUrls = staticPages.map((page) => {
+    const path = page ? `${basePath}/${page}` : `${basePath}/`;
+    return `  <url><loc>${new URL(path, siteURL).href}</loc></url>`;
+  });
 
   const postUrls = posts.map(
-    (post) => `  <url><loc>https://missynancy.github.io/Luku/posts/${post.slug}</loc></url>`
+    (post) => `  <url><loc>${new URL(`${basePath}/posts/${post.slug}`, siteURL).href}</loc></url>`
   );
 
   const urls = [...staticUrls, ...postUrls].join('\n');

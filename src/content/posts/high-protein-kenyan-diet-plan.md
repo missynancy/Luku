@@ -42,23 +42,23 @@ Keep portions realistic, drink water throughout the day, and aim for consistency
 <section class="faq" aria-labelledby="faq-heading">
   <h2 id="faq-heading">Frequently Asked Questions</h2>
 
-  <div class="faq-item">
-    <h3>Is ugali high in protein?</h3>
+  <details class="faq-item">
+    <summary>Is ugali high in protein?</summary>
     <p>Not on its own — ugali is mostly carbohydrate. That's why this plan always pairs it with a protein source like omena, beans, or chicken, so the meal as a whole stays high-protein even though the ugali itself is a carb staple.</p>
-  </div>
+  </details>
 
-  <div class="faq-item">
-    <h3>How much does this meal plan cost per week?</h3>
+  <details class="faq-item">
+    <summary>How much does this meal plan cost per week?</summary>
     <p>Built around ndengu, omena, eggs, sukuma wiki, ugali, and beans, this plan is designed to run on a modest weekly grocery budget by leaning on staples sold in bulk at local markets rather than imported protein sources.</p>
-  </div>
+  </details>
 
-  <div class="faq-item">
-    <h3>Can I follow this plan if I don't eat meat?</h3>
+  <details class="faq-item">
+    <summary>Can I follow this plan if I don't eat meat?</summary>
     <p>Yes. Ndengu, beans, eggs, and plain yogurt already cover most of the protein in this plan without needing meat. Omena is the one animal-based staple; swap it for extra beans or eggs if you'd rather skip it.</p>
-  </div>
+  </details>
 
-  <div class="faq-item">
-    <h3>How quickly will I see results?</h3>
+  <details class="faq-item">
+    <summary>How quickly will I see results?</summary>
     <p>This plan is built for consistency over speed. Most people notice changes in energy and appetite control within the first two to three weeks, with visible weight changes following after that if portions and consistency are maintained.</p>
-  </div>
+  </details>
 </section>

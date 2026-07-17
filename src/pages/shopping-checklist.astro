@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Free Grocery Checklist" description="A practical one-page Kenyan grocery checklist for affordable, balanced meals.">
+  <section class="section checklist-page">
+    <div class="container checklist-card">
+      <p class="tag">Free printable</p>
+      <h1>Naivas/Carrefour Grocery Checklist</h1>
+      <p>Use this one-page checklist to build simple, balanced meals with affordable Kenyan staples.</p>
+      <div class="checklist-grid">
+        <section><h2>Protein</h2><ul><li>Eggs</li><li>Beans or ndengu</li><li>Omena</li><li>Plain yoghurt</li></ul></section>
+        <section><h2>Greens & fruit</h2><ul><li>Sukuma wiki</li><li>Spinach</li><li>Tomatoes and onions</li><li>Seasonal fruit</li></ul></section>
+        <section><h2>Filling staples</h2><ul><li>Unga ya ugali</li><li>Rice</li><li>Oats</li><li>Sweet potatoes</li></ul></section>
+      </div>
+      <button class="btn btn-primary" type="button" onclick="window.print()">Print or Save as PDF</button>
+    </div>
+  </section>
+</BaseLayout>

@@ -7,6 +7,8 @@ const siteURL = Astro.site || 'https://missynancy.github.io';
 const canonicalPath = Astro.url.pathname === import.meta.env.BASE_URL ? `${Astro.url.pathname}/` : Astro.url.pathname;
 const canonicalURL = new URL(canonicalPath, siteURL);
 const ogImage = image ? new URL(image, siteURL) : new URL(`${import.meta.env.BASE_URL}/images/hero-image.svg`, siteURL);
+const siteHomeURL = new URL(import.meta.env.BASE_URL, siteURL).href;
+const organizationID = `${siteHomeURL}#organization`;
 ---
 <html lang="en">
   <head>
@@ -27,6 +29,26 @@ const ogImage = image ? new URL(image, siteURL) : new URL(`${import.meta.env.BAS
     <meta property="twitter:title" content={pageTitle} />
     <meta property="twitter:description" content={description || 'Fitness and nutrition tips for busy people, budget-friendly Kenyan meals, and simple home workouts.'} />
     <meta property="twitter:image" content={ogImage} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'Organization',
+          '@id': organizationID,
+          name: siteTitle,
+          url: siteHomeURL,
+          description: 'Practical fitness and nutrition education focused on budget-friendly Kenyan meals and home workouts.',
+          address: { '@type': 'PostalAddress', addressLocality: 'Nairobi', addressCountry: 'KE' }
+        },
+        {
+          '@type': 'WebSite',
+          '@id': `${siteHomeURL}#website`,
+          name: siteTitle,
+          url: siteHomeURL,
+          publisher: { '@id': organizationID }
+        }
+      ]
+    })} />
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
@@ -49,7 +71,10 @@ const ogImage = image ? new URL(image, siteURL) : new URL(`${import.meta.env.BAS
     </main>
     <footer class="site-footer">
       <div class="container footer-inner">
-        <p>Health information is for general education and is not a substitute for professional medical advice.</p>
+        <aside class="medical-disclaimer" role="note" aria-label="Medical disclaimer">
+          <strong>Health disclaimer:</strong> This site provides general education only and is not a substitute for advice, diagnosis, or treatment from a qualified healthcare professional.
+        </aside>
+        <p class="founder-bio">Curated by Nancy Wambui, a Tech-Savvy Virtual Assistant and Frontend Developer building digital operation assets in public.</p>
         <p>© 2026 SmartLukuFitness. Practical fitness and nutrition for real life.</p>
       </div>
     </footer>

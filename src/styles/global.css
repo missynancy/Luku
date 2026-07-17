@@ -216,3 +216,14 @@ form button { border: 0; cursor: pointer; }
   .hero-grid { grid-template-columns: 1.2fr 0.8fr; }
   .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
+
+/* FAQ styling: underline the question and show pointer on hover */
+.faq { margin-top: 1.25rem; }
+.faq summary {
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: 600;
+  padding: 0.45rem 0;
+}
+.faq summary::-webkit-details-marker { margin-right: 0.5rem; }
+.faq .faq-item p { margin: 0.35rem 0 1rem; color: var(--color-muted); }

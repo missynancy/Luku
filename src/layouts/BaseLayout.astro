@@ -32,9 +32,8 @@ const ogImage = image ? new URL(image, siteURL) : new URL(`${import.meta.env.BAS
     <a class="skip-link" href="#main-content">Skip to content</a>
     <header class="site-header">
       <div class="container nav-wrap">
-        <a class="brand" href={import.meta.env.BASE_URL} aria-label="SmartLukuFitness home">
-          <img src={`${import.meta.env.BASE_URL}/images/logo.png`} alt="SmartLukuFitness" />
-        </a>
+        <a class="brand" href={import.meta.env.BASE_URL}>SmartLukuFitness</a>
+        <img class="site-logo" src={`${import.meta.env.BASE_URL}/images/logo.png`} alt="SmartLukuFitness" />
         <nav class="nav-links" aria-label="Primary">
           <a href={import.meta.env.BASE_URL}>Home</a>
           <a href={`${import.meta.env.BASE_URL}/nutrition`}>Nutrition</a>

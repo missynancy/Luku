@@ -236,3 +236,48 @@ form button { border: 0; cursor: pointer; }
   text-decoration: underline;
   cursor: pointer;
 }
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+.nav-toggle-bar {
+  width: 24px;
+  height: 2px;
+  background: var(--color-text);
+  border-radius: 2px;
+}
+
+@media (max-width: 760px) {
+  .site-logo {
+    display: none;
+  }
+  .nav-toggle {
+    display: flex;
+  }
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--color-surface);
+    padding: 16px 24px;
+    gap: 14px;
+    box-shadow: var(--color-shadow);
+    border-top: 1px solid var(--color-border);
+  }
+  .nav-links.open {
+    display: flex;
+  }
+  .site-header {
+    position: relative;
+  }
+}

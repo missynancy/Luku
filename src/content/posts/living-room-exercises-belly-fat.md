@@ -1,6 +1,6 @@
 ---
 title: 5 Living Room Exercises to Lose Belly Fat Without Gym Equipment
-description: A simple home workout you can do in a small apartment or spare room to build consistency and support fat loss.
+description: Five simple living room exercises to lose belly fat without gym equipment — perfect for a small apartment or spare room.
 pubDate: 2026-07-11
 category: Fitness
 tags:
@@ -10,7 +10,7 @@ tags:
   - desk break
 readTime: 5 min read
 image: yogama2.jpg
-imageAlt: A person doing a workout in a living room
+imageAlt: A person doing a workout in a living room to lose belly fat
 featured: true
 ---
 

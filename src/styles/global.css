@@ -281,3 +281,7 @@ form button { border: 0; cursor: pointer; }
     position: relative;
   }
 }
+
+.footer-copyright {
+  text-align: center;
+}

@@ -10,7 +10,7 @@ tags:
   - protein
   - budget meals
 readTime: 6 min read
-image: meal3.jpg
+image: meal5.jpg
 imageAlt: A high-protein Kenyan diet plan meal with eggs, greens, and ugali
 featured: true
 ---

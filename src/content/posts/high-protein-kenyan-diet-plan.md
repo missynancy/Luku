@@ -10,12 +10,12 @@ tags:
   - protein
   - budget meals
 readTime: 6 min read
-image: meal1.jpg
-imageAlt: A simple Kenyan meal plate with eggs, greens, and ugali
+image: meal3.jpg
+imageAlt: A high-protein Kenyan diet plan meal with eggs, greens, and ugali
 featured: true
 ---
 
-## Why this plan works
+## Why This High-Protein Kenyan Diet Plan Works
 
 A high-protein Kenyan diet can be both affordable and effective when you lean on staples that are easy to find and simple to prepare.
 

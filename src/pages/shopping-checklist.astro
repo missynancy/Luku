@@ -7,12 +7,54 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <p class="tag">Free printable</p>
       <h1>Naivas/Carrefour Grocery Checklist</h1>
       <p>Use this one-page checklist to build simple, balanced meals with affordable Kenyan staples.</p>
+      
+      <!-- Grid updated to 4 columns implicitly via content layout -->
       <div class="checklist-grid">
-        <section><h2>Protein</h2><ul><li>Eggs</li><li>Beans or ndengu</li><li>Omena</li><li>Plain yoghurt</li></ul></section>
-        <section><h2>Greens & fruit</h2><ul><li>Sukuma wiki</li><li>Spinach</li><li>Tomatoes and onions</li><li>Seasonal fruit</li></ul></section>
-        <section><h2>Filling staples</h2><ul><li>Unga ya ugali</li><li>Rice</li><li>Oats</li><li>Sweet potatoes</li></ul></section>
+        <section>
+          <h2>Protein</h2>
+          <ul>
+            <li><label><input type="checkbox" id="eggs" /> Eggs</label></li>
+            <li><label><input type="checkbox" id="ndengu" /> Beans or ndengu</label></li>
+            <li><label><input type="checkbox" id="omena" /> Omena</label></li>
+            <li><label><input type="checkbox" id="yoghurt" /> Plain yoghurt</label></li>
+          </ul>
+        </section>
+        
+        <section>
+          <h2>Greens & fruit</h2>
+          <ul>
+            <li><label><input type="checkbox" id="sukuma" /> Sukuma wiki</label></li>
+            <li><label><input type="checkbox" id="spinach" /> Spinach</label></li>
+            <li><label><input type="checkbox" id="tomatoes" /> Tomatoes and onions</label></li>
+            <li><label><input type="checkbox" id="fruit" /> Seasonal fruit</label></li>
+          </ul>
+        </section>
+        
+        <section>
+          <h2>Filling staples</h2>
+          <ul>
+            <li><label><input type="checkbox" id="ugali" /> Unga ya ugali</label></li>
+            <li><label><input type="checkbox" id="rice" /> Rice</label></li>
+            <li><label><input type="checkbox" id="oats" /> Oats</label></li>
+            <li><label><input type="checkbox" id="potatoes" /> Sweet potatoes</label></li>
+          </ul>
+        </section>
+
+        <!-- New 4th Column added seamlessly to expand your list value -->
+        <section>
+          <h2>Healthy snacks</h2>
+          <ul>
+            <li><label><input type="checkbox" id="groundnuts" /> Groundnuts</label></li>
+            <li><label><input type="checkbox" id="popcorn" /> Popcorn (Mahindi)</label></li>
+            <li><label><input type="checkbox" id="avocado" /> Avocado</label></li>
+          </ul>
+        </section>
       </div>
-      <button class="btn btn-primary" type="button" onclick="window.print()">Print or Save as PDF</button>
+
+      <div class="checklist-footer">
+        <p class="tip-text">💡 <strong>Shopping Tip:</strong> Skip pre-packaged snacks. Go to the open grain dispenser section at Naivas to buy ndengu and groundnuts by weight—it's way cheaper.</p>
+        <button class="btn btn-primary" type="button" onclick="window.print()">Print or Save as PDF</button>
+      </div>
     </div>
   </section>
 </BaseLayout>

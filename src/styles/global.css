@@ -205,11 +205,54 @@ img { display: block; max-width: 100%; }
 .checklist-cta h3 { margin-top: 0; }
 .checklist-page { padding-top: 3rem; }
 .checklist-card { max-width: 760px; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 18px; padding: 2rem; box-shadow: var(--color-shadow); }
-.checklist-grid { display: grid; gap: 1rem; margin: 1.5rem 0; }
-.checklist-grid section { padding: 1rem; border: 1px solid var(--color-border); border-radius: 12px; }
+.checklist-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin: 1.5rem 0; }
+.checklist-grid section { padding: 1.5rem 1.25rem 1.75rem; border: 1px solid var(--color-border); border-radius: 12px; min-height: auto; overflow: visible; }
 .checklist-grid h2 { margin-top: 0; font-size: 1.2rem; }
-@media (min-width: 760px) { .checklist-grid { grid-template-columns: repeat(3, 1fr); } }
-@media print { .site-header, .site-footer, .skip-link, .checklist-card > .btn { display: none; } body { background: white; } .checklist-card { box-shadow: none; border: 0; } }
+.checklist-grid ul { list-style: none; padding: 0; margin: 0; }
+.checklist-grid li { margin-bottom: 0.8rem; }
+.checklist-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+.checklist-item input[type="checkbox"] {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+  accent-color: var(--color-primary);
+}
+.checklist-item span {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+.item-quantity {
+  color: var(--color-muted);
+  font-size: 0.95rem;
+  font-weight: 400;
+}
+.checklist-footer { display: flex; flex-direction: column; gap: 1rem; }
+.checklist-footer .tip-text { margin: 0; color: var(--color-muted); }
+@media (min-width: 560px) {
+  .checklist-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 960px) {
+  .checklist-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media print {
+  .site-header, .site-footer, .skip-link, .checklist-card button { display: none !important; }
+  body { background: white; color: var(--color-text); }
+  .container { width: auto; margin: 0; }
+  .checklist-page { padding: 0; }
+  .checklist-card { box-shadow: none; border: 0; max-width: none; padding: 1.25rem; margin: 0; border-radius: 0; }
+  .checklist-grid { grid-template-columns: 1fr !important; gap: 1rem; }
+  .checklist-grid section { border: 1px solid var(--color-border); page-break-inside: avoid; break-inside: avoid-column; }
+  .checklist-card, .checklist-card * { color: var(--color-text); }
+  @page { size: auto; margin: 12mm; }
+ }
 form input, form textarea { width: 100%; padding: 0.8rem; border: 1px solid var(--color-border); border-radius: 10px; margin-top: 0.4rem; }
 form button { border: 0; cursor: pointer; }
 .disclaimer { margin-top: 1.5rem; color: var(--color-muted); font-size: 0.95rem; }

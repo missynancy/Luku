@@ -7,12 +7,13 @@
   --color-bg: #fbf7f2;
   --color-surface: #ffffff;
   --color-text: #1f2a2a;
-  --color-muted: #5c6b76;
+  --color-muted: #47545e; /* FIXED: Darkened from #5c6b76 for high WCAG text contrast */
   --color-border: #e7e2db;
   --color-shadow: 0 10px 30px rgba(0,0,0,0.08);
   --color-overlay: rgba(0,0,0,0.45);
   font-family: Inter, Arial, sans-serif;
 }
+
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body { margin: 0; background: var(--color-bg); color: var(--color-text); line-height: 1.6; }
@@ -89,6 +90,13 @@ img { display: block; max-width: 100%; }
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+.tag { 
+  background: var(--color-secondary-soft); 
+  color: var(--color-primary-dark); 
+  padding: 0.2rem 0.5rem; 
+  border-radius: 999px; 
+  font-weight: 600; /* ADDED: Boosts readability of tag text on light backgrounds */
 }
 
 /* Reposition and Restyle the Side Card */

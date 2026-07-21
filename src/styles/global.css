@@ -239,6 +239,13 @@ img { display: block; max-width: 100%; }
   padding: 2rem;
   box-shadow: var(--color-shadow);
 }
+.checklist-cta, .checklist-card, .checklist-grid section {
+  color: #1f2a2a !important; /* Force use of your solid dark primary text color */
+}
+
+.checklist-cta p, .checklist-card p, .checklist-footer .tip-text {
+  color: #2b3939 !important; /* Darkened text override to pass WCAG AA over light tint panels */
+}
 .checklist-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin: 1.5rem 0; }
 .checklist-grid section { padding: 1.5rem 1.25rem 1.75rem; border: 1px solid var(--color-border); border-radius: 12px; min-height: auto; overflow: visible; }
 .checklist-grid h2 { margin-top: 0; font-size: 1.2rem; }
@@ -256,7 +263,9 @@ img { display: block; max-width: 100%; }
   height: 1.25rem;
   flex-shrink: 0;
   margin-top: 0.15rem;
+  color: #1f2a2a !important;
   accent-color: var(--color-primary);
+
 }
 .checklist-item span {
   display: inline-flex;
@@ -264,7 +273,7 @@ img { display: block; max-width: 100%; }
   gap: 0.35rem;
 }
 .item-quantity {
-  color: var(--color-muted);
+  color: #435151 !important;
   font-size: 0.95rem;
   font-weight: 400;
 }

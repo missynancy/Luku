@@ -15,11 +15,12 @@ const relatedPosts = (await getCollection('posts', ({ data }) => !data.draft))
   .filter((entry) => entry.slug !== post.slug && entry.data.category === post.data.category)
   .slice(0, 3);
 const articleImage = post.data.image ? `${import.meta.env.BASE_URL}/images/${post.data.image}` : `${import.meta.env.BASE_URL}/images/hero-image.svg`;
+const socialImage = post.data.image ? `/images/${post.data.image}` : `/images/hero-image.svg`;
 const siteURL = Astro.site || 'https://missynancy.github.io';
 const articleURL = new URL(`${import.meta.env.BASE_URL}/posts/${post.slug}/`, siteURL);
 const articleImageURL = new URL(articleImage, siteURL);
 ---
-<BaseLayout title={post.data.title} description={post.data.description} image={articleImage}>
+<BaseLayout title={post.data.title} description={post.data.description} image={socialImage}>
   <article class="article">
     <header class="article-header">
       <p class="post-meta">{post.data.category} • {post.data.readTime}</p>

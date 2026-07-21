@@ -13,6 +13,22 @@
   --color-overlay: rgba(0,0,0,0.45);
   font-family: Inter, Arial, sans-serif;
 }
+.tag { 
+  background: var(--color-secondary-soft); 
+  color: var(--color-primary-dark); 
+  padding: 0.2rem 0.5rem; 
+  border-radius: 999px; 
+  font-weight: 600; /* ADDED: Boosts readability of tag text on light backgrounds */
+}
+.nav-links a {
+  color: #3a454d !important;
+}
+
+.post-meta, 
+.post-tags,
+.site-footer {
+  color: #43505a !important;
+}
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }

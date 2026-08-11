@@ -78,3 +78,36 @@ For a full structured plan built around many of these staples, check out our [Hi
     <p>Yes. Buying chicken or beans in bulk and portioning them for the freezer or storage is one of the most effective ways to lower your average cost per meal.</p>
   </details>
 </section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the cheapest source of protein in Kenya?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Eggs and ndengu are typically the most affordable, widely available protein sources, both cheaper per serving than meat or imported protein powders."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I eat healthy in Kenya on a tight budget?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Staples like beans, eggs, sukuma wiki, and ugali are inexpensive and nutrient-dense, making it possible to eat a balanced diet without relying on imported or premium-priced foods."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are frozen or bulk foods a good way to save money?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Buying chicken or beans in bulk and portioning them for the freezer or storage is one of the most effective ways to lower your average cost per meal."
+      }
+    }
+  ]
+}
+</script>

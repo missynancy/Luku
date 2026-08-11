@@ -76,3 +76,44 @@ Start small. Tomorrow morning, swap your usual breakfast for two boiled eggs and
     <p>This plan is built for consistency over speed. Most people notice changes in energy and appetite control within the first two to three weeks, with visible weight changes following after that if portions and consistency are maintained.</p>
   </details>
 </section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is ugali high in protein?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not on its own — ugali is mostly carbohydrate. That's why this plan always pairs it with a protein source like omena, beans, or chicken, so the meal as a whole stays high-protein even though the ugali itself is a carb staple."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does this meal plan cost per week?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Built around ndengu, omena, eggs, sukuma wiki, ugali, and beans, this plan is designed to run on a modest weekly grocery budget by leaning on staples sold in bulk at local markets rather than imported protein sources."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I follow this plan if I don't eat meat?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Ndengu, beans, eggs, and plain yogurt already cover most of the protein in this plan without needing meat. Omena is the one animal-based staple; swap it for extra beans or eggs if you'd rather skip it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How quickly will I see results?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This plan is built for consistency over speed. Most people notice changes in energy and appetite control within the first two to three weeks, with visible weight changes following after that if portions and consistency are maintained."
+      }
+    }
+  ]
+}
+</script>

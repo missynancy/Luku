@@ -57,3 +57,28 @@ For more affordable staples to build your meals and snacks around, check out our
     <p>Preparing a few healthy snacks in advance, like boiled eggs or sweet potatoes, makes it easier to reach for something nutritious instead of defaulting to chips or sugary options when hunger hits.</p>
   </details>
 </section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a healthy snack under KES 50?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Boiled eggs, roasted groundnuts, and roasted maize are all filling snack options that typically cost well under KES 50 per serving."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I stop snacking on unhealthy foods?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Preparing a few healthy snacks in advance, like boiled eggs or sweet potatoes, makes it easier to reach for something nutritious instead of defaulting to chips or sugary options when hunger hits."
+      }
+    }
+  ]
+}
+</script>

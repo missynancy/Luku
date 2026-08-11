@@ -57,3 +57,36 @@ For a full structured eating plan built around many of these same staples, check
     <p>General guidance for muscle gain is roughly 1.6–2.2g of protein per kilogram of bodyweight per day, spread across meals — but check with a registered nutritionist or trainer for a target suited to your goals.</p>
   </details>
 </section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the cheapest protein source in Kenya for muscle gain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Eggs and green grams (ndengu) are typically the most affordable per gram of protein, well below the cost of imported whey or protein powders."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I build muscle on a budget diet in Kenya?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Staples like eggs, omena, beans, and chicken bought in bulk provide enough protein and calories to support muscle gain without relying on premium-priced or imported foods."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much protein do I need per day to gain muscle?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "General guidance for muscle gain is roughly 1.6–2.2g of protein per kilogram of bodyweight per day, spread across meals — but check with a registered nutritionist or trainer for a target suited to your goals."
+      }
+    }
+  ]
+}
+</script>

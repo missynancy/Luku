@@ -18,20 +18,22 @@ draft: false
 
 You don't need imported whey protein or a fancy supplement stack to build muscle in Kenya. What you need is enough protein, consistently, without blowing your budget — and most of it is already sitting on the shelves at your local Naivas.
 
-Below are 10 affordable protein sources, what they'll cost you, and how to fit them into a muscle-building routine. Prices are current Naivas online listings as of August 2026 — expect small variation by branch and season.
+Below is the full list with current Naivas prices as of August 2026 — expect small variation by branch and season.
 
 ## Protein Sources for Muscle Gain
 
-- **Eggs** — Isinya Eggs, 30 pieces, **KES 635** (about KES 21 per egg). A complete protein with every amino acid your body needs to repair and grow muscle; 3–4 whole eggs a day is an easy daily add.
-- **Omena** — Qualipas Fried Omena, 150g, **KES 255**. Small, cheap, and protein-dense per gram, plus calcium and omega-3s. Fry with onions and tomatoes and eat with ugali for a high-protein, high-carb post-workout meal.
-- **Green grams (ndengu)** — 1kg, **around KES 199–249**. Cheap, filling plant protein; cook a big batch on Sunday and portion it for the week.
-- **Rosecoco beans** — 1kg, **around KES 295–299**. Cheap per gram of protein and keeps you full for hours; pair with a starch for a complete amino profile.
-- **Soya chunks / mince** — Sossi Soya Mince Classic, 180g, **KES 80**. Vegetarian-friendly and shelf-stable; bulks up the protein content of stews and sauces for very little cost.
-- **Beef mince (economy)** — Quality Beef Mince Economy, 500g, **KES 355**. Adds iron and creatine-supporting nutrients; cook a big batch and portion into containers to keep the per-meal cost down.
-- **Chicken (kienyeji or boneless breast)** — Boneless breast **KES 849/kg**; kienyeji **roughly KES 719–875/kg**. Lean and versatile; buy in bulk on offer and freeze in meal-sized portions.
-- **Milk** — Naivas Fino UHT, 500ml, **KES 54**; Brookside Dairybest, 500ml, **KES 62**. An easy, low-effort way to add protein and calories if you're struggling to eat enough to bulk.
-- **Nyayo beans** — 1kg, **KES 269**. Rotate with rosecoco and green grams so meals don't get repetitive.
-- **Groundnuts** — price varies by pack size in-store. Not a primary protein source, but a cheap way to add extra calories when pushing your intake up for muscle gain.
+| # | Source | Product & price | Why it helps |
+|---|--------|------------------|---------------|
+| 1 | Eggs | Isinya Eggs, 30 pcs — **KES 635** (~KES 21/egg) | Complete protein with every amino acid needed to repair and grow muscle. 3–4 whole eggs a day is an easy daily add. |
+| 2 | Omena | Qualipas Fried Omena, 150g — **KES 255** | Small, cheap, protein-dense per gram, plus calcium and omega-3s. Fry with onions and tomatoes for a high-protein, high-carb post-workout meal. |
+| 3 | Green grams (ndengu) | 1kg — **KES 199–249** | Cheap, filling plant protein. Cook a big batch on Sunday and portion for the week. |
+| 4 | Rosecoco beans | 1kg — **KES 295–299** | Cheap per gram of protein, keeps you full for hours. Pair with a starch for a complete amino profile. |
+| 5 | Soya chunks / mince | Sossi Soya Mince Classic, 180g — **KES 80** | Vegetarian-friendly, shelf-stable. Bulks up protein in stews and sauces for very little cost. |
+| 6 | Beef mince (economy) | 500g — **KES 355** | Adds iron and creatine-supporting nutrients. Cook a big batch and portion into containers to lower per-meal cost. |
+| 7 | Chicken (kienyeji or boneless breast) | Boneless breast **KES 849/kg**; kienyeji **KES 719–875/kg** | Lean, versatile. Buy in bulk on offer and freeze in meal-sized portions. |
+| 8 | Milk | Naivas Fino UHT, 500ml — **KES 54**; Brookside Dairybest, 500ml — **KES 62** | Easy, low-effort way to add protein and calories if you're struggling to eat enough to bulk. |
+| 9 | Nyayo beans | 1kg — **KES 269** | Rotate with rosecoco and green grams so meals don't get repetitive. |
+| 10 | Groundnuts | Price varies by pack size in-store | Not a primary protein source, but a cheap way to add extra calories when pushing intake up for muscle gain. |
 
 ## Putting It Together on a Budget
 

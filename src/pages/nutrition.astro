@@ -3,17 +3,30 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('posts')).filter((post) => !post.data.draft && post.data.category === 'Nutrition').sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const focusAreas = ['Kenyan Foods', 'Protein', 'Weight Loss Nutrition', 'Muscle Building', 'Healthy Eating', 'Budget Nutrition', 'Meal Planning'];
 ---
-<BaseLayout title="Nutrition" description="Budget-friendly nutrition tips, Kenyan meal ideas, and healthy eating advice for everyday life.">
+<BaseLayout title="Nutrition" description="Budget-friendly Kenyan nutrition advice on protein, healthy eating, weight loss, and practical meal planning for everyday life.">
   <section class="section">
     <div class="container">
-      <h1>Nutrition</h1>
-      <p>Simple nutrition ideas built around affordable, practical foods that work for Kenyan households and busy professionals.</p>
+      <div class="page-intro">
+        <p class="eyebrow">NUTRITION</p>
+        <h1>Eat better. Understand Kenyan foods. Make practical food choices.</h1>
+        <p>From affordable staples to protein basics and meal planning, SmartLukuFitness helps you build meals around what works for your budget, your body, and your routine.</p>
+      </div>
+
+      <div class="category-cloud" aria-label="Nutrition categories">
+        {focusAreas.map((item) => <span class="tag">{item}</span>)}
+      </div>
+
       <div class="grid">
         {posts.map((post) => (
           <article class="card">
+            <p class="post-meta">{post.data.category} • {post.data.readTime}</p>
             <h2><a href={`${import.meta.env.BASE_URL}/posts/${post.slug}`}>{post.data.title}</a></h2>
             <p>{post.data.description}</p>
+            <div class="post-tags">
+              {post.data.tags.slice(0, 3).map((tag) => <span class="tag">#{tag}</span>)}
+            </div>
           </article>
         ))}
       </div>

@@ -6,16 +6,14 @@ const pageTitle = title ? `${title} | ${siteTitle}` : siteTitle;
 const siteURL = Astro.site || 'https://missynancy.github.io';
 const canonicalPath = Astro.url.pathname === import.meta.env.BASE_URL ? `${Astro.url.pathname}/` : Astro.url.pathname;
 const canonicalURL = new URL(canonicalPath, siteURL);
+const defaultDescription = 'SmartLukuFitness helps you move better, eat smarter, and dress with confidence through practical fitness, nutrition, and style advice for everyday life in Kenya.';
 
 const defaultSocialImage = Astro.url.pathname === import.meta.env.BASE_URL
   ? `${import.meta.env.BASE_URL}/images/homepage.webp`
   : `${import.meta.env.BASE_URL}/images/hero-image.png`;
 
-// FIX 1: Strip leading slash from image prop if it exists to prevent resetting the URL root
 const cleanImagePath = image && image.startsWith('/') ? image.slice(1) : image;
-
-// Then combine the base URL and the cleaned path safely
-const ogImage = image 
+const ogImage = image
   ? new URL(`${import.meta.env.BASE_URL}/${cleanImagePath}`.replace(/\/+/g, '/'), siteURL)
   : new URL(defaultSocialImage, siteURL);
 
@@ -27,25 +25,21 @@ const organizationID = `${siteHomeURL}#organization`;
     <meta charset="utf-8" />
     <meta name="google-site-verification" content="VB3GHRKS-P2Am0dNywada7okOEXF9R82V19d1qgJIz8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content={description || 'Fitness and nutrition tips for busy people, budget-friendly Kenyan meals, and simple home workouts.'} />
+    <meta name="description" content={description || defaultDescription} />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
     <link rel="icon" type="image/webp" href={`${import.meta.env.BASE_URL}/images/icon.webp`} />
     <link rel="apple-touch-icon" href={`${import.meta.env.BASE_URL}/images/icon.webp`} />
     <link rel="canonical" href={canonicalURL} />
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={siteTitle} />
     <meta property="og:title" content={pageTitle} />
-    <meta property="og:description" content={description || 'Fitness and nutrition tips for busy people, budget-friendly Kenyan meals, and simple home workouts.'} />
-    
-    {/* FIX 2: Ensuring .href output for absolute string formatting */}
+    <meta property="og:description" content={description || defaultDescription} />
     <meta property="og:image" content={ogImage.href} />
-    
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:title" content={pageTitle} />
-    <meta property="twitter:description" content={description || 'Fitness and nutrition tips for busy people, budget-friendly Kenyan meals, and simple home workouts.'} />
-    
+    <meta property="twitter:description" content={description || defaultDescription} />
     <meta property="twitter:image" content={ogImage.href} />
-    
     <script is:inline type="application/ld+json" set:html={JSON.stringify({
       '@context': 'https://schema.org',
       '@graph': [
@@ -54,7 +48,7 @@ const organizationID = `${siteHomeURL}#organization`;
           '@id': organizationID,
           name: siteTitle,
           url: siteHomeURL,
-          description: 'Practical fitness and nutrition education focused on budget-friendly Kenyan meals and home workouts.',
+          description: 'SmartLukuFitness helps people move better, eat smarter, and dress with confidence through practical fitness, nutrition, and style advice in Kenya.',
           address: { '@type': 'PostalAddress', addressLocality: 'Nairobi', addressCountry: 'KE' }
         },
         {
@@ -70,54 +64,78 @@ const organizationID = `${siteHomeURL}#organization`;
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
     <header class="site-header">
-  <div class="container nav-wrap">
-    <a class="brand" href={import.meta.env.BASE_URL}>SmartLukuFitness</a>
-    <img class="site-logo" src={`${import.meta.env.BASE_URL}/images/logo.webp`} alt="SmartLukuFitness" />
+      <div class="container nav-wrap">
+        <a class="brand" href={import.meta.env.BASE_URL}>
+          <span class="brand-mark">SmartLuku</span><span class="brand-fit">Fitness</span>
+        </a>
+        <img class="site-logo" src={`${import.meta.env.BASE_URL}/images/logo.webp`} alt="SmartLukuFitness" />
 
-    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
-      <span class="nav-toggle-bar"></span>
-      <span class="nav-toggle-bar"></span>
-      <span class="nav-toggle-bar"></span>
-    </button>
+        <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+        </button>
 
-    <nav class="nav-links" id="primary-nav" aria-label="Primary">
-      <a href={import.meta.env.BASE_URL}>Home</a>
-      <a href={`${import.meta.env.BASE_URL}/nutrition`}>Nutrition</a>
-      <a href={`${import.meta.env.BASE_URL}/fitness`}>Fitness</a>
-      <a href={`${import.meta.env.BASE_URL}/style`}>Style & Luku</a>
-      <a href={`${import.meta.env.BASE_URL}/about`}>About</a>
-      <a href={`${import.meta.env.BASE_URL}/contact`}>Contact</a>
-      <a href={`${import.meta.env.BASE_URL}/guide`}>Guide</a>
-    </nav>
-  </div>
-</header>
+        <nav class="nav-links" id="primary-nav" aria-label="Primary">
+          <a href={import.meta.env.BASE_URL}>Home</a>
+          <a href={`${import.meta.env.BASE_URL}/fitness`}>Fitness</a>
+          <a href={`${import.meta.env.BASE_URL}/nutrition`}>Nutrition</a>
+          <a href={`${import.meta.env.BASE_URL}/style`}>Style & Luku</a>
+          <a href={`${import.meta.env.BASE_URL}/about`}>About</a>
+        </nav>
+      </div>
+    </header>
 
-<script>
-  const toggle = document.querySelector('.nav-toggle');
-  const menu = document.getElementById('primary-nav');
+    <script>
+      const toggle = document.querySelector('.nav-toggle');
+      const menu = document.getElementById('primary-nav');
 
-  toggle?.addEventListener('click', () => {
-    const isOpen = menu?.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', String(!!isOpen));
-  });
+      toggle?.addEventListener('click', () => {
+        const isOpen = menu?.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', String(!!isOpen));
+      });
 
-  menu?.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => {
-      menu?.classList.remove('open');
-      toggle?.setAttribute('aria-expanded', 'false');
-    });
-  });
-</script>
+      menu?.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+          menu?.classList.remove('open');
+          toggle?.setAttribute('aria-expanded', 'false');
+        });
+      });
+    </script>
     <main id="main-content">
       <slot />
     </main>
     <footer class="site-footer">
       <div class="container footer-inner">
+        <div class="footer-grid">
+          <div>
+            <h3>SmartLukuFitness</h3>
+            <p>Be Smart. Look Smart. Feel Strong.</p>
+          </div>
+          <div>
+            <h4>Explore</h4>
+            <ul class="footer-links">
+              <li><a href={import.meta.env.BASE_URL}>Home</a></li>
+              <li><a href={`${import.meta.env.BASE_URL}/fitness`}>Fitness</a></li>
+              <li><a href={`${import.meta.env.BASE_URL}/nutrition`}>Nutrition</a></li>
+              <li><a href={`${import.meta.env.BASE_URL}/style`}>Style & Luku</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Follow</h4>
+            <div class="social-links">
+              <a href="https://www.instagram.com/smartlukufitness/" target="_blank" rel="noreferrer">Instagram</a>
+              <a href="https://www.pinterest.com/SmartLukuFitness/" target="_blank" rel="noreferrer">Pinterest</a>
+              <a href="https://www.facebook.com/smartlukufitness/" target="_blank" rel="noreferrer">Facebook</a>
+            </div>
+          </div>
+        </div>
+
         <aside class="medical-disclaimer" role="note" aria-label="Medical disclaimer">
           <strong>Health disclaimer:</strong> This site provides general education only and is not a substitute for advice, diagnosis, or treatment from a qualified healthcare professional.
         </aside>
         <p class="founder-bio">Curated by <a href="https://missynancy.github.io/Portfolio/" class="author-link">Nancy Wambui</a>, a Tech-Savvy Virtual Assistant and Frontend Developer building digital operation assets in public.</p>
-        <p class="footer-copyright">© 2026 SmartLukuFitness. Practical fitness and nutrition for real life.</p>
+        <p class="footer-copyright">© 2026 SmartLukuFitness. Fitness • Nutrition • Style.</p>
       </div>
     </footer>
   </body>

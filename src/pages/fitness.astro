@@ -3,17 +3,30 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('posts')).filter((post) => !post.data.draft && post.data.category === 'Fitness').sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const focusAreas = ['Home Workouts', 'Strength', 'Weight Loss', 'Beginner Fitness', 'Mobility', 'Workout Routines', 'Fitness Habits'];
 ---
-<BaseLayout title="Fitness" description="Home workouts, fat loss routines, and fitness advice for busy people who want results without a gym.">
+<BaseLayout title="Fitness" description="Practical Kenyan fitness guidance on home workouts, strength, weight loss, and sustainable routines for everyday life.">
   <section class="section">
     <div class="container">
-      <h1>Fitness</h1>
-      <p>Low-cost, no-gym workouts that fit in small spaces and busy schedules.</p>
+      <div class="page-intro">
+        <p class="eyebrow">FITNESS</p>
+        <h1>Move better. Get stronger. Build sustainable habits.</h1>
+        <p>SmartLukuFitness keeps fitness practical: home-friendly workouts, manageable routines, and realistic habits that work around work, family, and a busy schedule.</p>
+      </div>
+
+      <div class="category-cloud" aria-label="Fitness categories">
+        {focusAreas.map((item) => <span class="tag">{item}</span>)}
+      </div>
+
       <div class="grid">
         {posts.map((post) => (
           <article class="card">
+            <p class="post-meta">{post.data.category} • {post.data.readTime}</p>
             <h2><a href={`${import.meta.env.BASE_URL}/posts/${post.slug}`}>{post.data.title}</a></h2>
             <p>{post.data.description}</p>
+            <div class="post-tags">
+              {post.data.tags.slice(0, 3).map((tag) => <span class="tag">#{tag}</span>)}
+            </div>
           </article>
         ))}
       </div>

@@ -10,7 +10,7 @@ tags:
   - protein
   - budget meals
 readTime: 6 min read
-image: meal5.jpg
+image: meal5.webp
 imageAlt: A high-protein Kenyan diet plan meal with eggs, greens, and ugali
 featured: true
 draft: false
@@ -36,6 +36,19 @@ You don't need anything imported or expensive. These are available at nearly any
 - **Sukuma wiki** — adds fiber and nutrients to round out any protein-based meal
 - **Ugali** — a carbohydrate staple, best paired with a protein source rather than eaten alone
 - **Plain yogurt** — a simple, versatile protein source for breakfast or snacks
+
+## High-Protein Kenyan Food Comparison Table (Per 100g)
+
+Below is a breakdown comparing common affordable Kenyan protein sources by protein content, estimated cost, and key nutritional benefits:
+
+| Food Item (100g) | Protein (g) | Est. Cost (KES) | Calories (kcal) | Key Benefit |
+| :--- | :--- | :--- | :--- | :--- |
+| **Omena (Dried Fish)** | **60g - 65g** | ~KES 35 | ~290 kcal | Highest protein density per KES; rich in calcium & Omega-3 |
+| **Ndengu (Mung Beans)** | **24g** | ~KES 20 | ~347 kcal | High fiber, keeps you satiated for 4+ hours |
+| **Eggs (2 Large Eggs)** | **13g** | ~KES 30 | ~140 kcal | Complete amino acid profile; quick & versatile |
+| **Kamande (Brown Lentils)**| **25g** | ~KES 25 | ~350 kcal | Low glycemic index; fast cooking time |
+| **Groundnuts (Njugu)** | **26g** | ~KES 25 | ~567 kcal | Excellent portable snack; rich in healthy fats |
+| **Yellow Beans / Njahi** | **22g** | ~KES 22 | ~340 kcal | High in iron & fiber; great for weekly meal prep |
 
 ## A Sample One-Day High-Protein Meal Plan
 

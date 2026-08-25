@@ -10,7 +10,7 @@ tags:
   - snacks
   - quick meals
 readTime: 4 min read
-image: budget-snacks-kenya.jpg
+image: budget-snacks-kenya.webp
 imageAlt: Simple affordable Kenyan snacks including groundnuts and boiled eggs
 featured: false
 draft: false

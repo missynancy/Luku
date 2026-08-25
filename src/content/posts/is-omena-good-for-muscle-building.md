@@ -10,7 +10,7 @@ tags:
   - protein
   - kenyan fitness
 readTime: 6 min read
-image: omena-protein-foods.jpg
+image: omena-protein-foods.webp
 imageAlt: Dried omena and a bowl of cooked omena stew
 featured: false
 draft: false
@@ -23,6 +23,18 @@ Omena is one of those foods that gets overlooked because it is small, cheap, and
 A serving of dried omena provides a strong amount of protein for its size, which is why it is such a valuable staple in many Kenyan homes. It is especially useful for people who want more protein without paying for imported powders or expensive meat cuts. In practical terms, omena can help you hit your daily protein targets while keeping food costs low.
 
 For bodybuilders or anyone focused on muscle gain, protein quality matters, but consistency matters even more. Omena fits well into a high-protein diet because it is easy to add to porridge, stew, rice, ugali, and vegetable dishes. It is not just a cheap protein source; it is a convenient one.
+
+## Omena vs Other Popular Kenyan Protein Sources
+
+Here is how Omena compares to other common animal and plant-based protein sources available in local Kenyan markets:
+
+| Food (100g serving) | Protein (g) | Calcium (mg) | Fat (g) | Est. Cost (KES) | Best For |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Dried Omena** | **63g** | **1,200mg** | **8.5g** | ~KES 35 | Maximum protein & bone density on a tight budget |
+| **Beef (Lean Steak)** | **26g** | **18mg** | **15g** | ~KES 120 | Muscle building, higher cost |
+| **Chicken Breast** | **31g** | **15mg** | **3.6g** | ~KES 150 | Lean protein, premium cost |
+| **Tilapia (Fresh Fish)**| **20g** | **30mg** | **1.7g** | ~KES 100 | Easy digestion, mild taste |
+| **Eggs (2 Whole Eggs)** | **13g** | **56mg** | **10g** | ~KES 30 | Quick breakfast protein & vitamins |
 
 ## Why omena is a smart muscle-building food
 

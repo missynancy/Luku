@@ -10,7 +10,7 @@ tags:
   - affordable eating
   - healthy foods
 readTime: 6 min read
-image: kenyan-market-foods.jpg
+image: kenyan-market-foods.webp
 imageAlt: Fresh Kenyan market foods including vegetables, beans, and eggs
 featured: true
 draft: false

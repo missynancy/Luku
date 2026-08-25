@@ -9,7 +9,7 @@ tags:
   - no gym
   - desk break
 readTime: 5 min read
-image: yogama2.jpg
+image: yogama2.webp
 imageAlt: A person doing a workout in a living room to lose belly fat
 featured: true
 ---

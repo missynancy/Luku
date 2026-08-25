@@ -8,7 +8,7 @@ const canonicalPath = Astro.url.pathname === import.meta.env.BASE_URL ? `${Astro
 const canonicalURL = new URL(canonicalPath, siteURL);
 
 const defaultSocialImage = Astro.url.pathname === import.meta.env.BASE_URL
-  ? `${import.meta.env.BASE_URL}/images/homepage.png`
+  ? `${import.meta.env.BASE_URL}/images/homepage.webp`
   : `${import.meta.env.BASE_URL}/images/hero-image.png`;
 
 // FIX 1: Strip leading slash from image prop if it exists to prevent resetting the URL root
@@ -30,8 +30,8 @@ const organizationID = `${siteHomeURL}#organization`;
     <meta name="description" content={description || 'Fitness and nutrition tips for busy people, budget-friendly Kenyan meals, and simple home workouts.'} />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
-    <link rel="icon" type="image/png" href={`${import.meta.env.BASE_URL}/images/icon.png`} />
-    <link rel="apple-touch-icon" href={`${import.meta.env.BASE_URL}/images/icon.png`} />
+    <link rel="icon" type="image/webp" href={`${import.meta.env.BASE_URL}/images/icon.webp`} />
+    <link rel="apple-touch-icon" href={`${import.meta.env.BASE_URL}/images/icon.webp`} />
     <link rel="canonical" href={canonicalURL} />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={pageTitle} />
@@ -72,7 +72,7 @@ const organizationID = `${siteHomeURL}#organization`;
     <header class="site-header">
   <div class="container nav-wrap">
     <a class="brand" href={import.meta.env.BASE_URL}>SmartLukuFitness</a>
-    <img class="site-logo" src={`${import.meta.env.BASE_URL}/images/logo.png`} alt="SmartLukuFitness" />
+    <img class="site-logo" src={`${import.meta.env.BASE_URL}/images/logo.webp`} alt="SmartLukuFitness" />
 
     <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
       <span class="nav-toggle-bar"></span>

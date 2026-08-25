@@ -9,8 +9,20 @@ const posts = (await getCollection('posts')).filter(
 <BaseLayout title="Style & Luku" description="Smart office outfit guides, capsule wardrobes, and professional dress codes for busy Kenyan professionals.">
   <section class="section">
     <div class="container">
-      <h1>Style & Luku</h1>
-      <p>Look sharp and feel confident. Practical outfit guides, smart-casual dress codes, and budget-friendly office wardrobes for busy professionals in Kenya.</p>
+      <div class="style-hero-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; align-items: center; margin-bottom: 2.5rem; background: var(--color-secondary-soft, #f8f9fa); padding: 2rem; border-radius: 18px; border: 1px solid var(--color-border, #e9ecef);">
+        <div>
+          <span class="tag" style="background: var(--color-primary, #e63946); color: white; padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Style & Luku Inspiration</span>
+          <h1 style="margin-top: 0.75rem; font-size: 2.2rem;">Look Sharp. Feel Confident.</h1>
+          <p style="font-size: 1.1rem; color: var(--color-text-muted, #495057); line-height: 1.6;">
+            Being "Smart Luku" is about combining a fit, healthy body with polished, professional styling. Discover practical office outfit guides, capsule wardrobes, and budget-friendly dress codes tailored for busy professionals in Kenya.
+          </p>
+        </div>
+        <div style="text-align: center;">
+          <img src={`${import.meta.env.BASE_URL}/images/nancy-smart-luku.webp`} alt="Nancy Wambui styling a smart casual office outfit" style="max-height: 420px; width: auto; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); object-fit: cover;" />
+        </div>
+      </div>
+
+      <h2>Latest Style Guides</h2>
       <div class="grid">
         {posts.map((post) => (
           <article class="card">

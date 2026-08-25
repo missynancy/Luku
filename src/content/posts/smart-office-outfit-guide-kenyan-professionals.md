@@ -10,8 +10,8 @@ tags:
   - smart casual
   - capsule wardrobe
 readTime: 7 min read
-image: image4.webp
-imageAlt: A stylish, professional work outfit layout for a busy office professional
+image: nancy-smart-luku.webp
+imageAlt: Nancy Wambui styling a smart casual office outfit with tailored chocolate brown trousers and a patterned top
 featured: true
 draft: false
 ---

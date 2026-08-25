@@ -27,8 +27,8 @@ const articleImageURL = new URL(articleImage, siteURL);
       <h1>{post.data.title}</h1>
       <p>{post.data.description}</p>
       {post.data.image && (
-        <div class="article-image" style="min-height: 320px; overflow: hidden; border-radius: 18px; margin-bottom: 1rem;">
-          <img class="object-cover" src={articleImage} alt={post.data.imageAlt || post.data.title} />
+        <div class="article-image" style="max-height: 600px; text-align: center; border-radius: 18px; margin-bottom: 1.5rem; background: var(--color-secondary-soft, #f8f9fa); padding: 1rem; overflow: hidden;">
+          <img src={articleImage} alt={post.data.imageAlt || post.data.title} style="max-height: 560px; width: auto; max-width: 100%; object-fit: contain; border-radius: 12px; display: inline-block;" />
         </div>
       )}
     </header>

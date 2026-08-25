@@ -6,15 +6,15 @@ const basePath = '/Luku';
 export async function GET() {
   const posts = (await getCollection('posts')).filter((post) => !post.data.draft);
 
-  const staticPages = ['', 'nutrition', 'fitness', 'about', 'contact', 'guide'];
+  const staticPages = ['', 'nutrition', 'fitness', 'about', 'contact', 'guide', 'shopping-checklist'];
 
   const staticUrls = staticPages.map((page) => {
-    const path = page ? `${basePath}/${page}` : `${basePath}/`;
+    const path = page ? `${basePath}/${page}/` : `${basePath}/`;
     return `  <url><loc>${new URL(path, siteURL).href}</loc></url>`;
   });
 
   const postUrls = posts.map(
-    (post) => `  <url><loc>${new URL(`${basePath}/posts/${post.slug}`, siteURL).href}</loc></url>`
+    (post) => `  <url><loc>${new URL(`${basePath}/posts/${post.slug}/`, siteURL).href}</loc></url>`
   );
 
   const urls = [...staticUrls, ...postUrls].join('\n');

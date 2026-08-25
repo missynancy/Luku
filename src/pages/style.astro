@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('posts')).filter(
+  (post) => !post.data.draft && (post.data.category === 'Style' || post.data.category === 'Style & Luku' || post.data.tags?.includes('office wear') || post.data.tags?.includes('style'))
+).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+<BaseLayout title="Style & Luku" description="Smart office outfit guides, capsule wardrobes, and professional dress codes for busy Kenyan professionals.">
+  <section class="section">
+    <div class="container">
+      <h1>Style & Luku</h1>
+      <p>Look sharp and feel confident. Practical outfit guides, smart-casual dress codes, and budget-friendly office wardrobes for busy professionals in Kenya.</p>
+      <div class="grid">
+        {posts.map((post) => (
+          <article class="card">
+            <p class="post-meta">{post.data.category} • {post.data.readTime}</p>
+            <h2><a href={`${import.meta.env.BASE_URL}/posts/${post.slug}`}>{post.data.title}</a></h2>
+            <p>{post.data.description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

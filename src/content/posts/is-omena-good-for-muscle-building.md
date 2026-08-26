@@ -18,6 +18,8 @@ draft: false
 
 Omena is one of those foods that gets overlooked because it is small, cheap, and simple. But if you are trying to build muscle on a budget, it deserves more attention. This tiny fish is packed with protein, easy to find in Kenyan markets, and useful in a lot of everyday meals. It is not a gimmick or a trendy supplement; it is a practical food that can support your training and recovery.
 
+If your goal is to build lean mass on a realistic budget, omena works best as part of a bigger plan. Pair it with a solid routine from the [SmartLukuFitness fitness guides](/Luku/fitness) and use it alongside practical meal ideas like the [High Protein Kenyan Diet Plan](/Luku/posts/high-protein-kenyan-diet-plan) or the [Ndengu vs Kamande comparison](/Luku/posts/ndengu-vs-kamande-weight-loss-protein).
+
 ## Protein content in omena
 
 A serving of dried omena provides a strong amount of protein for its size, which is why it is such a valuable staple in many Kenyan homes. It is especially useful for people who want more protein without paying for imported powders or expensive meat cuts. In practical terms, omena can help you hit your daily protein targets while keeping food costs low.

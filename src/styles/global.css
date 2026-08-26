@@ -187,6 +187,16 @@ img { display: block; max-width: 100%; }
 .prose h2, .prose h3 { margin-top: 1.7rem; }
 .prose p, .prose li { font-size: 1.02rem; }
 .related { margin-top: 2rem; }
+.related-posts { margin-top: 2.5rem; padding-top: 1.25rem; border-top: 1px solid var(--color-border); }
+.related-posts h2 { margin-bottom: 1rem; }
+.related-grid { display: grid; gap: 1rem; }
+.related-card {
+  background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 16px; padding: 1rem; box-shadow: var(--color-shadow);
+}
+.related-card h3 { margin: 0.25rem 0 0.5rem; }
+.read-next-links {
+  display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; font-weight: 700; color: var(--color-primary-dark);
+}
 .monet-card, .signup-card, .ad-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 18px; padding: 1rem; margin: 1rem 0; }
 .affiliate-image { width: 100%; max-height: 320px; object-fit: cover; border-radius: 12px; margin: 0.8rem 0; }
 .checklist-cta { margin-top: 1.5rem; padding: 1.25rem; border-radius: 18px; background: var(--color-secondary-soft); }

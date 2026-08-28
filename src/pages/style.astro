@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('posts')).filter(
-  (post) => !post.data.draft && (post.data.category === 'Style' || post.data.category === 'Style & Luku' || post.data.tags?.includes('office wear') || post.data.tags?.includes('style'))
+  (post) => !post.data.draft && (post.data.category === 'Style' || post.data.tags?.includes('office wear') || post.data.tags?.includes('style'))
 ).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 const focusAreas = ['Office Style', 'Smart Casual', 'Budget Dressing', 'Kenyan Workwear', 'Capsule Wardrobes', 'Thrift & Mtumba Style', 'Grooming', 'Personal Presentation'];
 ---

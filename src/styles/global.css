@@ -140,6 +140,40 @@ img { display: block; max-width: 100%; }
 .founder-bio { font-style: italic; }
 .footer-copyright { text-align: center; }
 
+.table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  margin: 1rem 0 1.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background: var(--color-surface);
+}
+.table-wrap table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 640px;
+}
+.table-wrap th,
+.table-wrap td {
+  border-bottom: 1px solid var(--color-border);
+  padding: 0.8rem 0.9rem;
+  text-align: left;
+  vertical-align: top;
+}
+.table-wrap th {
+  background: rgba(255, 95, 46, 0.04);
+  font-weight: 700;
+}
+.table-wrap tr:last-child td {
+  border-bottom: none;
+}
+.callout {
+  margin: 1.5rem 0;
+  padding: 1rem 1.1rem;
+  border-left: 4px solid var(--color-primary);
+  border-radius: 0 12px 12px 0;
+  background: rgba(255, 95, 46, 0.05);
+}
 .photo-placeholder {
   display: grid;
   gap: 0.35rem;

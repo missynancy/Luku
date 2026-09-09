@@ -11,8 +11,8 @@ tags:
   - beginner-fitness
   - heart-health
 readTime: 7 min read
-image: cover.png
-imageAlt: Woman performing 15-minute no-gym cardio workout on a balcony in Nairobi
+image: cardio-conditioning-cover.png
+imageAlt: Nancy standing in brown athletic activewear set ready for 15-minute home cardio workout
 featured: true
 draft: false
 ---

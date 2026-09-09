@@ -96,7 +96,7 @@ Repeat 4 times:
 - **30 seconds:** Rest & breathe
 
 <div style="margin: 2rem 0; text-align: center;">
-  <img src="/Luku/images/cardio-conditioning-cover.jpg" alt="Woman performing high-energy bodyweight cardio exercise on a balcony in Nairobi" style="border-radius: 12px; max-width: 100%; height: auto; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <img src="/Luku/images/cardio-jack-intervals.jpg" alt="Woman performing high-energy bodyweight cardio exercise on a balcony in Nairobi" style="border-radius: 12px; max-width: 100%; height: auto; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
   <p style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;"><em>Block 1: High-energy jacks on the balcony — raising your heart rate without expensive machines.</em></p>
 </div>
 

@@ -16,9 +16,9 @@ const recent = posts.slice(0, 5);
         <h1>Be Smart. Look Smart. Feel Strong.</h1>
         <p class="hero-subtitle">Practical fitness, nutrition &amp; style for real life.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href={`${import.meta.env.BASE_URL}/fitness`}>Explore Fitness</a>
-          <a class="btn btn-secondary" href={`${import.meta.env.BASE_URL}/nutrition`}>Explore Nutrition</a>
-          <a class="btn btn-ghost" href={`${import.meta.env.BASE_URL}/style`}>Explore Style &amp; Luku</a>
+          <a class="btn btn-primary" href={`${import.meta.env.BASE_URL}/fitness/`}>Explore Fitness</a>
+          <a class="btn btn-secondary" href={`${import.meta.env.BASE_URL}/nutrition/`}>Explore Nutrition</a>
+          <a class="btn btn-ghost" href={`${import.meta.env.BASE_URL}/style/`}>Explore Style &amp; Luku</a>
         </div>
         <ul class="hero-points" aria-label="Brand pillars">
           <li>Move better</li>
@@ -58,21 +58,21 @@ const recent = posts.slice(0, 5);
           <span class="card-kicker">Fitness</span>
           <h3>Move better. Get stronger. Build sustainable habits.</h3>
           <p>Low-cost training, home workouts, and routines that fit busy Nairobi life without the gym drama.</p>
-          <a href={`${import.meta.env.BASE_URL}/fitness`}>Explore fitness guides →</a>
+          <a href={`${import.meta.env.BASE_URL}/fitness/`}>Explore fitness guides →</a>
         </article>
 
         <article class="pillar-card">
           <span class="card-kicker">Nutrition</span>
           <h3>Eat better. Understand Kenyan foods. Make practical choices.</h3>
           <p>Budget-friendly food ideas, protein basics, and everyday nutrition built around what you can actually buy and cook.</p>
-          <a href={`${import.meta.env.BASE_URL}/nutrition`}>Explore nutrition guides →</a>
+          <a href={`${import.meta.env.BASE_URL}/nutrition/`}>Explore nutrition guides →</a>
         </article>
 
         <article class="pillar-card">
           <span class="card-kicker">Style &amp; Luku</span>
           <h3>Dress smart. Look put-together. Build confidence without overspending.</h3>
           <p>“Luku” is Nairobi Sheng for looking smart, dressing well, and throwing a good outfit — the polish that completes the lifestyle.</p>
-          <a href={`${import.meta.env.BASE_URL}/style`}>Explore style guides →</a>
+          <a href={`${import.meta.env.BASE_URL}/style/`}>Explore style guides →</a>
         </article>
       </div>
     </div>
@@ -91,7 +91,7 @@ const recent = posts.slice(0, 5);
           {featuredFitness.map((post) => (
             <article class="mini-card">
               <p class="post-meta">{post.data.category} • {post.data.readTime}</p>
-              <h4><a href={`${import.meta.env.BASE_URL}/posts/${post.slug}`}>{post.data.title}</a></h4>
+              <h4><a href={`${import.meta.env.BASE_URL}/posts/${post.slug}/`}>{post.data.title}</a></h4>
               <p>{post.data.description}</p>
             </article>
           ))}
@@ -102,7 +102,7 @@ const recent = posts.slice(0, 5);
           {featuredNutrition.map((post) => (
             <article class="mini-card">
               <p class="post-meta">{post.data.category} • {post.data.readTime}</p>
-              <h4><a href={`${import.meta.env.BASE_URL}/posts/${post.slug}`}>{post.data.title}</a></h4>
+              <h4><a href={`${import.meta.env.BASE_URL}/posts/${post.slug}/`}>{post.data.title}</a></h4>
               <p>{post.data.description}</p>
             </article>
           ))}
@@ -113,7 +113,7 @@ const recent = posts.slice(0, 5);
           {featuredStyle.map((post) => (
             <article class="mini-card">
               <p class="post-meta">{post.data.category} • {post.data.readTime}</p>
-              <h4><a href={`${import.meta.env.BASE_URL}/posts/${post.slug}`}>{post.data.title}</a></h4>
+              <h4><a href={`${import.meta.env.BASE_URL}/posts/${post.slug}/`}>{post.data.title}</a></h4>
               <p>{post.data.description}</p>
             </article>
           ))}
@@ -132,7 +132,7 @@ const recent = posts.slice(0, 5);
         {recent.map((post) => (
           <article class="card">
             <p class="post-meta">{post.data.category} • {post.data.readTime}</p>
-            <h3><a href={`${import.meta.env.BASE_URL}/posts/${post.slug}`}>{post.data.title}</a></h3>
+            <h3><a href={`${import.meta.env.BASE_URL}/posts/${post.slug}/`}>{post.data.title}</a></h3>
             <p>{post.data.description}</p>
             <div class="post-tags">
               {post.data.tags.slice(0, 3).map((tag) => <span class="tag">#{tag}</span>)}
@@ -160,7 +160,7 @@ const recent = posts.slice(0, 5);
       <div class="checklist-cta">
         <h3>Plan your next healthy shop</h3>
         <p>Use a practical one-page list of affordable staples for your next Naivas or Carrefour visit.</p>
-        <a class="btn btn-primary" href={`${import.meta.env.BASE_URL}/shopping-checklist`}>Download the grocery checklist</a>
+        <a class="btn btn-primary" href={`${import.meta.env.BASE_URL}/shopping-checklist/`}>Download the grocery checklist</a>
       </div>
     </div>
   </section>

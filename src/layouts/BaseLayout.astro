@@ -1,23 +1,29 @@
 ---
 import '../styles/global.css';
-const { title, description, image } = Astro.props;
+const { title, description, image, noindex = false } = Astro.props;
 const siteTitle = 'SmartLukuFitness';
 const pageTitle = title ? `${title} | ${siteTitle}` : siteTitle;
-const siteURL = Astro.site || 'https://missynancy.github.io';
-const canonicalPath = Astro.url.pathname === import.meta.env.BASE_URL ? `${Astro.url.pathname}/` : Astro.url.pathname;
-const canonicalURL = new URL(canonicalPath, siteURL);
+const siteURL = 'https://missynancy.github.io';
+const basePath = '/Luku';
+
+let pathname = Astro.url.pathname;
+if (!pathname.endsWith('/')) {
+  pathname += '/';
+}
+const canonicalURL = new URL(pathname, siteURL).href;
 const defaultDescription = 'SmartLukuFitness helps you move better, eat smarter, and dress with confidence through practical fitness, nutrition, and style advice for everyday life in Kenya.';
 
-const defaultSocialImage = Astro.url.pathname === import.meta.env.BASE_URL
-  ? `${import.meta.env.BASE_URL}/images/homepage.webp`
-  : `${import.meta.env.BASE_URL}/images/hero-image.png`;
+const isHomePage = pathname === `${basePath}/` || pathname === '/';
+const defaultSocialImage = isHomePage
+  ? `${basePath}/images/homepage.webp`
+  : `${basePath}/images/hero-image.png`;
 
 const cleanImagePath = image && image.startsWith('/') ? image.slice(1) : image;
 const ogImage = image
-  ? new URL(`${import.meta.env.BASE_URL}/${cleanImagePath}`.replace(/\/+/g, '/'), siteURL)
+  ? new URL(`${basePath}/${cleanImagePath}`.replace(/\/+/g, '/'), siteURL)
   : new URL(defaultSocialImage, siteURL);
 
-const siteHomeURL = new URL(import.meta.env.BASE_URL, siteURL).href;
+const siteHomeURL = `${siteURL}${basePath}/`;
 const organizationID = `${siteHomeURL}#organization`;
 ---
 <html lang="en">
@@ -26,6 +32,7 @@ const organizationID = `${siteHomeURL}#organization`;
     <meta name="google-site-verification" content="VB3GHRKS-P2Am0dNywada7okOEXF9R82V19d1qgJIz8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description || defaultDescription} />
+    {noindex && <meta name="robots" content="noindex, follow" />}
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
     <link rel="icon" type="image/webp" href={`${import.meta.env.BASE_URL}/images/icon.webp`} />
@@ -35,6 +42,7 @@ const organizationID = `${siteHomeURL}#organization`;
     <meta property="og:site_name" content={siteTitle} />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description || defaultDescription} />
+    <meta property="og:url" content={canonicalURL} />
     <meta property="og:image" content={ogImage.href} />
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:title" content={pageTitle} />
@@ -65,7 +73,7 @@ const organizationID = `${siteHomeURL}#organization`;
     <a class="skip-link" href="#main-content">Skip to content</a>
     <header class="site-header">
       <div class="container nav-wrap">
-        <a class="brand" href={import.meta.env.BASE_URL}>
+        <a class="brand" href={`${import.meta.env.BASE_URL}/`}>
           <span class="brand-mark">SmartLuku</span><span class="brand-fit">Fitness</span>
         </a>
         <img class="site-logo" src={`${import.meta.env.BASE_URL}/images/logo.webp`} alt="SmartLukuFitness" />
@@ -77,11 +85,11 @@ const organizationID = `${siteHomeURL}#organization`;
         </button>
 
         <nav class="nav-links" id="primary-nav" aria-label="Primary">
-          <a href={import.meta.env.BASE_URL}>Home</a>
-          <a href={`${import.meta.env.BASE_URL}/fitness`}>Fitness</a>
-          <a href={`${import.meta.env.BASE_URL}/nutrition`}>Nutrition</a>
-          <a href={`${import.meta.env.BASE_URL}/style`}>Style & Luku</a>
-          <a href={`${import.meta.env.BASE_URL}/about`}>About</a>
+          <a href={`${import.meta.env.BASE_URL}/`}>Home</a>
+          <a href={`${import.meta.env.BASE_URL}/fitness/`}>Fitness</a>
+          <a href={`${import.meta.env.BASE_URL}/nutrition/`}>Nutrition</a>
+          <a href={`${import.meta.env.BASE_URL}/style/`}>Style & Luku</a>
+          <a href={`${import.meta.env.BASE_URL}/about/`}>About</a>
         </nav>
       </div>
     </header>
@@ -115,10 +123,10 @@ const organizationID = `${siteHomeURL}#organization`;
           <div>
             <h4>Explore</h4>
             <ul class="footer-links">
-              <li><a href={import.meta.env.BASE_URL}>Home</a></li>
-              <li><a href={`${import.meta.env.BASE_URL}/fitness`}>Fitness</a></li>
-              <li><a href={`${import.meta.env.BASE_URL}/nutrition`}>Nutrition</a></li>
-              <li><a href={`${import.meta.env.BASE_URL}/style`}>Style & Luku</a></li>
+              <li><a href={`${import.meta.env.BASE_URL}/`}>Home</a></li>
+              <li><a href={`${import.meta.env.BASE_URL}/fitness/`}>Fitness</a></li>
+              <li><a href={`${import.meta.env.BASE_URL}/nutrition/`}>Nutrition</a></li>
+              <li><a href={`${import.meta.env.BASE_URL}/style/`}>Style & Luku</a></li>
             </ul>
           </div>
           <div>

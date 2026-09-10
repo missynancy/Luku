@@ -31,14 +31,14 @@ const focusAreas = ['Office Style', 'Smart Casual', 'Budget Dressing', 'Kenyan W
         <p class="eyebrow">Anchor article</p>
         <h2>Smart Office Outfit Guide for Busy Kenyan Professionals</h2>
         <p>Start with a practical, affordable roadmap for building a polished work wardrobe without overspending.</p>
-        <a class="btn btn-primary" href={`${import.meta.env.BASE_URL}/posts/smart-office-outfit-guide-kenyan-professionals`}>Read the office style guide</a>
+        <a class="btn btn-primary" href={`${import.meta.env.BASE_URL}/posts/smart-office-outfit-guide-kenyan-professionals/`}>Read the office style guide</a>
       </div>
 
       <div class="grid">
         {posts.map((post) => (
           <article class="card">
             <p class="post-meta">{post.data.category} • {post.data.readTime}</p>
-            <h2><a href={`${import.meta.env.BASE_URL}/posts/${post.slug}`}>{post.data.title}</a></h2>
+            <h2><a href={`${import.meta.env.BASE_URL}/posts/${post.slug}/`}>{post.data.title}</a></h2>
             <p>{post.data.description}</p>
             <div class="post-tags">
               {post.data.tags.slice(0, 3).map((tag) => <span class="tag">#{tag}</span>)}

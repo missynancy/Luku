@@ -6,10 +6,10 @@ pubDate: 2026-09-15
 category: Style
 tags: ["capsule-wardrobe", "office-style", "kenyan-professional", "budget-fashion", "styling-tips"]
 readTime: "5 min read"
-image: "three-ways-trousers-cover.png"
+image: "three-ways-trousers-hanger-cover.png"
 imageAlt: "Woman wearing black tailored trousers styled three different ways"
 featured: false
-draft: true
+draft: false
 ---
 
 If you've been following the capsule wardrobe series, you already know the rule: buy pieces that work hard, not pieces that only work once.

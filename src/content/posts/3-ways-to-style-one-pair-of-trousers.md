@@ -6,7 +6,7 @@ pubDate: 2026-09-15
 category: Style
 tags: ["capsule-wardrobe", "office-style", "kenyan-professional", "budget-fashion", "styling-tips"]
 readTime: "5 min read"
-image: "three-ways-trousers-cover.jpg"
+image: "three-ways-trousers-cover.png"
 imageAlt: "Woman wearing black tailored trousers styled three different ways"
 featured: false
 draft: true

@@ -3,19 +3,20 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('posts')).filter(
-  (post) => !post.data.draft && (post.data.category === 'Style' || post.data.tags?.includes('office wear') || post.data.tags?.includes('style'))
+  (post) => !post.data.draft && post.data.category === 'Style'
 ).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
-const focusAreas = ['Office Style', 'Smart Casual', 'Budget Dressing', 'Kenyan Workwear', 'Capsule Wardrobes', 'Thrift & Mtumba Style', 'Grooming', 'Personal Presentation'];
+
+const focusAreas = ['Corporate Wear', 'Smart Casual', 'Modest Wear', 'Office Wardrobes', 'Capsule Wardrobes', 'Thrift & Mtumba', 'Grooming', 'Design Journey'];
 ---
-<BaseLayout title="Style & Luku" description="Discover practical office style, smart casual dressing, and budget-friendly Luku-inspired fashion for everyday confidence in Kenya.">
+<BaseLayout title="Style Hub — Corporate, Smart Casual & Modest Wear" description="Practical office style, corporate wear, modest dressing, smart casual outfits, and fashion design learning for working professionals.">
   <section class="section">
     <div class="container">
       <div class="style-hero-grid">
         <div>
-          <p class="eyebrow">STYLE &amp; LUKU</p>
-          <h1>Look sharp. Feel confident. Dress with intention.</h1>
+          <p class="eyebrow">STYLE</p>
+          <h1>Dress with intention. Build a wardrobe that works.</h1>
           <p>
-            In Nairobi Sheng, <strong>Luku</strong> means looking smart, dressing well, or throwing a good outfit. At SmartLukuFitness, style is not separate from your fitness and nutrition — it is part of how you present yourself, feel, and show up in the world.
+            Practical styling for corporate wear, modest wear, and smart casual dressing — plus a transparent journey into learning fashion design from the ground up.
           </p>
         </div>
         <div class="style-hero-image-wrap">
@@ -23,8 +24,42 @@ const focusAreas = ['Office Style', 'Smart Casual', 'Budget Dressing', 'Kenyan W
         </div>
       </div>
 
-      <div class="category-cloud" aria-label="Style categories">
+      <div class="category-cloud" aria-label="Style topics">
         {focusAreas.map((item) => <span class="tag">{item}</span>)}
+      </div>
+
+      <div class="section-heading" style="margin-top: 2rem;">
+        <p class="eyebrow">Core styling directions</p>
+        <h2>Featured Style Categories</h2>
+      </div>
+
+      <div class="style-cat-grid">
+        <article class="style-cat-card">
+          <img src={`${import.meta.env.BASE_URL}/images/office-capsule-brown-blazer.jpg`} alt="Corporate wear brown blazer and tailored office outfit" />
+          <div class="style-cat-content">
+            <h3>Corporate Wear</h3>
+            <p>Office outfits, corporate wardrobe essentials, blazers, trousers, shirts, blouses, and professional colour combinations for women and men.</p>
+            <a href={`${import.meta.env.BASE_URL}/style/corporate-wear/`} class="btn btn-secondary">Explore Corporate Wear →</a>
+          </div>
+        </article>
+
+        <article class="style-cat-card">
+          <img src={`${import.meta.env.BASE_URL}/images/three-ways-trousers-look-one.jpg`} alt="Smart casual tailored trousers outfit" />
+          <div class="style-cat-content">
+            <h3>Smart Casual</h3>
+            <p>Friday office outfits, work-to-weekend combinations, polos, relaxed blazers, trousers, and polished casual combinations for women and men.</p>
+            <a href={`${import.meta.env.BASE_URL}/style/smart-casual/`} class="btn btn-secondary">Explore Smart Casual →</a>
+          </div>
+        </article>
+
+        <article class="style-cat-card">
+          <img src={`${import.meta.env.BASE_URL}/images/office-capsule-flatlay-10pieces.jpg`} alt="Modest office wardrobe flatlay pieces" />
+          <div class="style-cat-content">
+            <h3>Modest Wear</h3>
+            <p>Modest professional dressing, appropriate lengths, layering, elegant silhouettes, and building a polished modest office wardrobe for women and men.</p>
+            <a href={`${import.meta.env.BASE_URL}/style/modest-wear/`} class="btn btn-secondary">Explore Modest Wear →</a>
+          </div>
+        </article>
       </div>
 
       <div class="feature-highlight">
@@ -32,6 +67,11 @@ const focusAreas = ['Office Style', 'Smart Casual', 'Budget Dressing', 'Kenyan W
         <h2>Smart Office Outfit Guide for Busy Kenyan Professionals</h2>
         <p>Start with a practical, affordable roadmap for building a polished work wardrobe without overspending.</p>
         <a class="btn btn-primary" href={`${import.meta.env.BASE_URL}/posts/smart-office-outfit-guide-kenyan-professionals/`}>Read the office style guide</a>
+      </div>
+
+      <div class="section-heading">
+        <p class="eyebrow">Latest style articles</p>
+        <h2>Practical styling guides &amp; wardrobe ideas</h2>
       </div>
 
       <div class="grid">
@@ -46,7 +86,13 @@ const focusAreas = ['Office Style', 'Smart Casual', 'Budget Dressing', 'Kenyan W
           </article>
         ))}
       </div>
-      
+
+      <div class="design-journey-banner">
+        <p class="eyebrow">Long-term development</p>
+        <h2>DESIGN JOURNEY</h2>
+        <p>From understanding clothing to learning how to create it. Follow the creator's transparent progress from garment theory and sketching to sewing-machine practice and original prototypes.</p>
+        <a class="btn btn-primary" href={`${import.meta.env.BASE_URL}/design-journey/`}>Explore the Design Journey →</a>
+      </div>
     </div>
   </section>
 </BaseLayout>

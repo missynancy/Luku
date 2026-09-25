@@ -3,44 +3,44 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('posts')).filter((post) => !post.data.draft).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
-const featuredFitness = posts.filter((post) => post.data.category === 'Fitness').slice(0, 2);
-const featuredNutrition = posts.filter((post) => post.data.category === 'Nutrition').slice(0, 2);
 const featuredStyle = posts.filter((post) => post.data.category === 'Style').slice(0, 2);
-const recent = posts.slice(0, 5);
+const featuredFitness = posts.filter((post) => post.data.category === 'Fitness').slice(0, 2);
+const featuredLifestyle = posts.filter((post) => post.data.category === 'Lifestyle').slice(0, 2);
+const recent = posts.slice(0, 6);
 ---
-<BaseLayout title="Smart fitness, nutrition, and style for everyday life in Kenya" description="SmartLukuFitness helps you move better, eat smarter, and dress with confidence through practical Kenyan fitness, nutrition, and style advice.">
+<BaseLayout title="STYLE • FITNESS • LIFESTYLE" description="Practical style, 30-minute fitness routines, and everyday lifestyle guidance for busy working professionals in Kenya.">
   <section class="hero">
     <div class="container hero-grid">
       <div class="hero-copy">
         <p class="eyebrow">SMARTLUKUFITNESS</p>
         <h1>Be Smart. Look Smart. Feel Strong.</h1>
-        <p class="hero-subtitle">Practical fitness, nutrition &amp; style for real life.</p>
+        <p class="hero-subtitle">Practical style, fitness and lifestyle ideas for busy professionals.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href={`${import.meta.env.BASE_URL}/fitness/`}>Explore Fitness</a>
-          <a class="btn btn-secondary" href={`${import.meta.env.BASE_URL}/nutrition/`}>Explore Nutrition</a>
-          <a class="btn btn-ghost" href={`${import.meta.env.BASE_URL}/style/`}>Explore Style &amp; Luku</a>
+          <a class="btn btn-primary" href={`${import.meta.env.BASE_URL}/style/`}>Explore Style</a>
+          <a class="btn btn-secondary" href={`${import.meta.env.BASE_URL}/fitness/`}>Explore Fitness</a>
+          <a class="btn btn-ghost" href={`${import.meta.env.BASE_URL}/lifestyle/`}>Explore Lifestyle</a>
         </div>
         <ul class="hero-points" aria-label="Brand pillars">
-          <li>Move better</li>
-          <li>Eat smarter</li>
-          <li>Dress with confidence</li>
+          <li>Dress with intention</li>
+          <li>Move consistently</li>
+          <li>Build practical routines</li>
         </ul>
       </div>
 
       <div class="hero-media">
         <div class="split-banner">
           <div class="banner-left">
-            <img src={`${import.meta.env.BASE_URL}/images/meal1.webp`} alt="Kenyan meal plate featuring white corn ugali, sukuma wiki greens, and beef stew" />
+            <img src={`${import.meta.env.BASE_URL}/images/office-capsule-hero-camel.jpg`} alt="Professional camel blazer office outfit" />
           </div>
           <div class="banner-right">
-            <img src={`${import.meta.env.BASE_URL}/images/image4.webp`} alt="Home fitness workspace" />
+            <img src={`${import.meta.env.BASE_URL}/images/nancy-smart-luku.webp`} alt="Nancy Wambui styling a smart casual office outfit" />
           </div>
         </div>
 
         <div class="hero-side-card">
           <div class="hero-card-copy">
-            <h2>Fitness • Nutrition • Style</h2>
-            <p>Build strength, improve daily habits, and show up with more confidence.</p>
+            <h2>STYLE • FITNESS • LIFESTYLE</h2>
+            <p>Dress smart, move consistently, and build practical routines that fit your working life.</p>
           </div>
         </div>
       </div>
@@ -51,28 +51,28 @@ const recent = posts.slice(0, 5);
     <div class="container">
       <div class="section-heading">
         <p class="eyebrow">The three pillars</p>
-        <h2>One lifestyle philosophy</h2>
+        <h2>Built for busy working professionals</h2>
       </div>
       <div class="pillar-grid">
         <article class="pillar-card">
-          <span class="card-kicker">Fitness</span>
-          <h3>Move better. Get stronger. Build sustainable habits.</h3>
-          <p>Low-cost training, home workouts, and routines that fit busy Nairobi life without the gym drama.</p>
-          <a href={`${import.meta.env.BASE_URL}/fitness/`}>Explore fitness guides →</a>
-        </article>
-
-        <article class="pillar-card">
-          <span class="card-kicker">Nutrition</span>
-          <h3>Eat better. Understand Kenyan foods. Make practical choices.</h3>
-          <p>Budget-friendly food ideas, protein basics, and everyday nutrition built around what you can actually buy and cook.</p>
-          <a href={`${import.meta.env.BASE_URL}/nutrition/`}>Explore nutrition guides →</a>
-        </article>
-
-        <article class="pillar-card">
-          <span class="card-kicker">Style &amp; Luku</span>
-          <h3>Dress smart. Look put-together. Build confidence without overspending.</h3>
-          <p>“Luku” is Nairobi Sheng for looking smart, dressing well, and throwing a good outfit — the polish that completes the lifestyle.</p>
+          <span class="card-kicker">Style</span>
+          <h3>Dress smart. Build a wardrobe that works for your real life.</h3>
+          <p>Corporate wear, modest dressing, smart casual combinations, and a transparent journey into learning fashion design.</p>
           <a href={`${import.meta.env.BASE_URL}/style/`}>Explore style guides →</a>
+        </article>
+
+        <article class="pillar-card">
+          <span class="card-kicker">Fitness</span>
+          <h3>Make movement fit your schedule — especially when you only have 30 minutes.</h3>
+          <p>30-minute full-body routines, no-equipment home workouts, and workday mobility to keep you active without gym hassle.</p>
+          <a href={`${import.meta.env.BASE_URL}/fitness/`}>Explore fitness routines →</a>
+        </article>
+
+        <article class="pillar-card">
+          <span class="card-kicker">Lifestyle</span>
+          <h3>Build practical routines that make working life easier.</h3>
+          <p>Personal organization, time management systems, weekly preparation, and habits that boost everyday confidence.</p>
+          <a href={`${import.meta.env.BASE_URL}/lifestyle/`}>Explore lifestyle systems →</a>
         </article>
       </div>
     </div>
@@ -82,10 +82,21 @@ const recent = posts.slice(0, 5);
     <div class="container">
       <div class="section-heading">
         <p class="eyebrow">Featured reads</p>
-        <h2>What people are reading right now</h2>
+        <h2>What professionals are reading right now</h2>
       </div>
 
       <div class="feature-grid">
+        <div class="feature-column">
+          <h3>Style</h3>
+          {featuredStyle.map((post) => (
+            <article class="mini-card">
+              <p class="post-meta">{post.data.category} • {post.data.readTime}</p>
+              <h4><a href={`${import.meta.env.BASE_URL}/posts/${post.slug}/`}>{post.data.title}</a></h4>
+              <p>{post.data.description}</p>
+            </article>
+          ))}
+        </div>
+
         <div class="feature-column">
           <h3>Fitness</h3>
           {featuredFitness.map((post) => (
@@ -98,19 +109,8 @@ const recent = posts.slice(0, 5);
         </div>
 
         <div class="feature-column">
-          <h3>Nutrition</h3>
-          {featuredNutrition.map((post) => (
-            <article class="mini-card">
-              <p class="post-meta">{post.data.category} • {post.data.readTime}</p>
-              <h4><a href={`${import.meta.env.BASE_URL}/posts/${post.slug}/`}>{post.data.title}</a></h4>
-              <p>{post.data.description}</p>
-            </article>
-          ))}
-        </div>
-
-        <div class="feature-column">
-          <h3>Style &amp; Luku</h3>
-          {featuredStyle.map((post) => (
+          <h3>Lifestyle</h3>
+          {featuredLifestyle.map((post) => (
             <article class="mini-card">
               <p class="post-meta">{post.data.category} • {post.data.readTime}</p>
               <h4><a href={`${import.meta.env.BASE_URL}/posts/${post.slug}/`}>{post.data.title}</a></h4>
@@ -126,7 +126,7 @@ const recent = posts.slice(0, 5);
     <div class="container">
       <div class="section-heading">
         <p class="eyebrow">Latest articles</p>
-        <h2>Fresh ideas for everyday life</h2>
+        <h2>Practical ideas for everyday working life</h2>
       </div>
       <div class="grid">
         {recent.map((post) => (
@@ -147,10 +147,10 @@ const recent = posts.slice(0, 5);
     <div class="container luku-story">
       <div>
         <p class="eyebrow">What is Luku?</p>
-        <h2>It means being intentional about how you move, eat, and present yourself.</h2>
+        <h2>It means looking smart, dressing well, and carrying yourself with confidence.</h2>
       </div>
       <p>
-        In Nairobi Sheng, <strong>Luku</strong> can mean looking smart, dressing well, or throwing a good outfit. At SmartLukuFitness, we take that idea further. Being Smart Luku is about exercising with intention, eating with purpose, and carrying yourself with confidence every day.
+        In Nairobi Sheng, <strong>Luku</strong> means looking smart, dressing well, or throwing a good outfit. At SmartLukuFitness, style is central to personal presentation. Being Smart Luku is about dressing with intention, staying consistent with movement, and building habits that give you genuine confidence every day.
       </p>
     </div>
   </section>
@@ -158,9 +158,9 @@ const recent = posts.slice(0, 5);
   <section class="section">
     <div class="container">
       <div class="checklist-cta">
-        <h3>Plan your next healthy shop</h3>
-        <p>Use a practical one-page list of affordable staples for your next Naivas or Carrefour visit.</p>
-        <a class="btn btn-primary" href={`${import.meta.env.BASE_URL}/shopping-checklist/`}>Download the grocery checklist</a>
+        <h3>Start with Style</h3>
+        <p>Explore practical corporate, modest, and smart casual outfit guides built for real working days in Kenya.</p>
+        <a class="btn btn-primary" href={`${import.meta.env.BASE_URL}/style/`}>Explore style guides</a>
       </div>
     </div>
   </section>

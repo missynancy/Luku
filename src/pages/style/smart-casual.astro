@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('posts')).filter(
+  (post) => !post.data.draft && post.data.category === 'Style' && (
+    post.data.tags?.some((t) => ['smart casual', 'styling-tips', 'budget-fashion', 'capsule-wardrobe'].includes(t.toLowerCase()))
+  )
+).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+<BaseLayout title="Smart Casual — Relaxed & Polished Workwear for Women & Men" description="Practical smart casual outfits, Friday office wear, work-to-weekend combinations, and affordable styling for professionals in Kenya.">
+  <section class="section">
+    <div class="container">
+      <div class="page-intro">
+        <p class="eyebrow"><a href={`${import.meta.env.BASE_URL}/style/`}>Style</a> / Smart Casual</p>
+        <h1>Smart Casual Dressing for Working Life</h1>
+        <p>
+          Smart casual bridges the gap between formal corporate attire and relaxed weekend dressing. Learn how to combine structured pieces with comfortable staples for Friday offices, client drop-ins, creative work environments, and work-to-weekend transitions.
+        </p>
+      </div>
+
+      <div class="feature-highlight" style="margin-bottom: 2rem;">
+        <h3>Smart Casual Focus Areas</h3>
+        <ul style="margin: 0.5rem 0 0; padding-left: 1.25rem;">
+          <li><strong>Friday Office Outfits:</strong> Polished polo shirts, tailored chinos, or dark denim paired with unconstructed blazers.</li>
+          <li><strong>Work-to-Weekend Transitions:</strong> Swapping structured shoes for clean sneakers or loafers while keeping your core outfit intact.</li>
+          <li><strong>Layering Techniques:</strong> Using cardigans, knitwear, and unbuttoned shirts over basic tees for depth.</li>
+          <li><strong>Accessories &amp; Details:</strong> Leather belts, subtle jewelry, and structured totes that elevate casual combinations.</li>
+        </ul>
+      </div>
+
+      <div class="section-heading">
+        <h2>Smart Casual Articles</h2>
+      </div>
+
+      {posts.length > 0 ? (
+        <div class="grid">
+          {posts.map((post) => (
+            <article class="card">
+              <p class="post-meta">{post.data.category} • {post.data.readTime}</p>
+              <h3><a href={`${import.meta.env.BASE_URL}/posts/${post.slug}/`}>{post.data.title}</a></h3>
+              <p>{post.data.description}</p>
+              <div class="post-tags">
+                {post.data.tags.slice(0, 3).map((tag) => <span class="tag">#{tag}</span>)}
+              </div>
+            </article>
+          ))}
+        </div>
+      ) : (
+        <div class="card" style="padding: 2rem; text-align: center;">
+          <p>More smart casual outfit combinations and guides are coming soon.</p>
+        </div>
+      )}
+
+      <div style="margin-top: 2.5rem;">
+        <a href={`${import.meta.env.BASE_URL}/style/`} class="btn btn-secondary">← Back to Style Hub</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('posts')).filter(
+  (post) => !post.data.draft && post.data.category === 'Lifestyle'
+).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const focusAreas = ['Daily Routines', 'Personal Organization', 'Time Management', 'Workday Prep', 'Confidence', 'Productivity Habits', 'Practical Systems'];
+---
+<BaseLayout title="Lifestyle — Practical Routines & Systems for Working Life" description="Practical everyday lifestyle systems, personal organization, time management, and habits for busy working professionals in Kenya.">
+  <section class="section">
+    <div class="container">
+      <div class="page-intro">
+        <p class="eyebrow">LIFESTYLE</p>
+        <h1>Practical routines for busy working life.</h1>
+        <p>
+          SmartLukuFitness lifestyle guidance focuses on simple, reliable systems for everyday working life: managing your time, streamlining morning preparation, organizing your environment, and building habits that give you clarity and confidence.
+        </p>
+      </div>
+
+      <div class="category-cloud" aria-label="Lifestyle topics">
+        {focusAreas.map((item) => <span class="tag">{item}</span>)}
+      </div>
+
+      <div class="feature-highlight" style="margin-bottom: 2rem;">
+        <p class="eyebrow">Workday Lifestyle Philosophy</p>
+        <h2 style="margin-top: 0.3rem;">Systems That Simplify Everyday Life</h2>
+        <p>
+          Lifestyle at SmartLukuFitness isn't about luxury aesthetics or complicated wellness trends. It's about practical habits that make your working week smoother — connecting seamlessly with how you dress (Style) and how you move (Fitness).
+        </p>
+      </div>
+
+      <div class="section-heading">
+        <p class="eyebrow">Lifestyle articles</p>
+        <h2>Routines, Habits &amp; Personal Organization</h2>
+      </div>
+
+      <div class="grid">
+        {posts.map((post) => (
+          <article class="card">
+            <p class="post-meta">{post.data.category} • {post.data.readTime}</p>
+            <h2><a href={`${import.meta.env.BASE_URL}/posts/${post.slug}/`}>{post.data.title}</a></h2>
+            <p>{post.data.description}</p>
+            <div class="post-tags">
+              {post.data.tags.slice(0, 3).map((tag) => <span class="tag">#{tag}</span>)}
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

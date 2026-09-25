@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('posts')).filter(
+  (post) => !post.data.draft && post.data.category === 'Style' && (
+    post.data.tags?.some((t) => ['office wear', 'workwear', 'office-style', 'kenyan-professional', 'capsule wardrobe'].includes(t.toLowerCase()))
+  )
+).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+<BaseLayout title="Corporate Wear — Professional Office Dressing for Women & Men" description="Practical corporate wear, office wardrobe essentials, blazers, trousers, shirts, and professional outfit combinations for working professionals in Kenya.">
+  <section class="section">
+    <div class="container">
+      <div class="page-intro">
+        <p class="eyebrow"><a href={`${import.meta.env.BASE_URL}/style/`}>Style</a> / Corporate Wear</p>
+        <h1>Corporate Wear for Busy Professionals</h1>
+        <p>
+          Building a clean, professional corporate wardrobe doesn't require an overflowing closet or expensive luxury brands. Focus on fit, quality tailoring, versatile neutral colours, and pieces that rotate seamlessly across your working week.
+        </p>
+      </div>
+
+      <div class="feature-highlight" style="margin-bottom: 2rem;">
+        <h3>Corporate Wardrobe Essentials</h3>
+        <ul style="margin: 0.5rem 0 0; padding-left: 1.25rem;">
+          <li><strong>Tailored Blazers &amp; Half Coats:</strong> Structuring your silhouette for client meetings and formal office environments.</li>
+          <li><strong>Crisp Shirts &amp; Blouses:</strong> High-versatility tops in white, sky blue, cream, and soft neutrals.</li>
+          <li><strong>Structured Trousers:</strong> High-waisted or tailored straight-leg trousers that hold their shape.</li>
+          <li><strong>Polished Footwear:</strong> Comfortable loafers, low block heels, or clean leather shoes built for commutes.</li>
+          <li><strong>Outfit Repeating:</strong> Combining 5 core pieces into 10+ distinct professional looks.</li>
+        </ul>
+      </div>
+
+      <div class="section-heading">
+        <h2>Corporate Wear Articles</h2>
+      </div>
+
+      {posts.length > 0 ? (
+        <div class="grid">
+          {posts.map((post) => (
+            <article class="card">
+              <p class="post-meta">{post.data.category} • {post.data.readTime}</p>
+              <h3><a href={`${import.meta.env.BASE_URL}/posts/${post.slug}/`}>{post.data.title}</a></h3>
+              <p>{post.data.description}</p>
+              <div class="post-tags">
+                {post.data.tags.slice(0, 3).map((tag) => <span class="tag">#{tag}</span>)}
+              </div>
+            </article>
+          ))}
+        </div>
+      ) : (
+        <div class="card" style="padding: 2rem; text-align: center;">
+          <p>More detailed corporate wear guides and outfit breakdowns are coming soon.</p>
+        </div>
+      )}
+
+      <div style="margin-top: 2.5rem;">
+        <a href={`${import.meta.env.BASE_URL}/style/`} class="btn btn-secondary">← Back to Style Hub</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

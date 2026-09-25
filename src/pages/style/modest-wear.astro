@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('posts')).filter(
+  (post) => !post.data.draft && post.data.category === 'Style' && (
+    post.data.tags?.some((t) => ['modest', 'modest wear', 'modest-style', 'workwear'].includes(t.toLowerCase()))
+  )
+).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+<BaseLayout title="Modest Wear — Professional & Elegant Dressing for Women & Men" description="Practical modest wear guidelines, appropriate lengths, layering techniques, and elegant professional dressing for working professionals in Kenya.">
+  <section class="section">
+    <div class="container">
+      <div class="page-intro">
+        <p class="eyebrow"><a href={`${import.meta.env.BASE_URL}/style/`}>Style</a> / Modest Wear</p>
+        <h1>Modest Professional Dressing</h1>
+        <p>
+          Modest wear in the workplace focuses on balance, appropriate coverage, clean tailoring, and elegant silhouettes. Whether for personal preference, cultural alignment, or workplace expectations, modest dressing can be both deeply practical and exceptionally sharp.
+        </p>
+      </div>
+
+      <div class="feature-highlight" style="margin-bottom: 2rem;">
+        <h3>Modest Style Principles</h3>
+        <ul style="margin: 0.5rem 0 0; padding-left: 1.25rem;">
+          <li><strong>Thoughtful Silhouettes:</strong> Fluid trousers, midi/maxi skirts, and relaxed blazers that provide movement without sacrificing structure.</li>
+          <li><strong>Smart Layering:</strong> Using lightweight trench coats, duster coats, and inner layers for complete coverage across changing weather.</li>
+          <li><strong>Sleeve &amp; Neckline Balance:</strong> Full and three-quarter sleeves, high-neck blouses, and button-up collars designed for work environments.</li>
+          <li><strong>Quality Fabrics:</strong> Choosing breathable cottons, linens, crepes, and wool blends that drape cleanly and comfortably.</li>
+        </ul>
+      </div>
+
+      <div class="section-heading">
+        <h2>Modest Wear Articles</h2>
+      </div>
+
+      {posts.length > 0 ? (
+        <div class="grid">
+          {posts.map((post) => (
+            <article class="card">
+              <p class="post-meta">{post.data.category} • {post.data.readTime}</p>
+              <h3><a href={`${import.meta.env.BASE_URL}/posts/${post.slug}/`}>{post.data.title}</a></h3>
+              <p>{post.data.description}</p>
+              <div class="post-tags">
+                {post.data.tags.slice(0, 3).map((tag) => <span class="tag">#{tag}</span>)}
+              </div>
+            </article>
+          ))}
+        </div>
+      ) : (
+        <div class="card" style="padding: 2rem;">
+          <h3 style="margin-top: 0;">Building the Modest Office Wardrobe Series</h3>
+          <p>Dedicated guides on modest office outfits, layering formulas for Nairobi weather, and modest capsule building will be published here regularly.</p>
+        </div>
+      )}
+
+      <div style="margin-top: 2.5rem;">
+        <a href={`${import.meta.env.BASE_URL}/style/`} class="btn btn-secondary">← Back to Style Hub</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

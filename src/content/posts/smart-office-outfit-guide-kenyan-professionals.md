@@ -297,7 +297,7 @@ These sections make it easy to add your own photos later without forcing the art
 
 You do not need to look wealthy to look prepared. A professional wardrobe can be practical, affordable, comfortable, and personal. SmartLuku is about finding ways to look, feel, and work better in real life, without pretending every useful piece has to be expensive.
 
-For the bigger picture, explore the [Style & Luku guides](/Luku/style/), learn more [about SmartLukuFitness](/Luku/about/), and connect the way you dress with the site's practical [fitness guides](/Luku/fitness/) and [nutrition guides](/Luku/nutrition/).
+For the bigger picture, explore the [Style guides](/Luku/style/), learn more [about SmartLukuFitness](/Luku/about/), and connect the way you dress with the site's practical [fitness routines](/Luku/fitness/) and [lifestyle systems](/Luku/lifestyle/).
 
 <script type="application/ld+json">
 {

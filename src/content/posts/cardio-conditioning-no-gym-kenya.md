@@ -191,11 +191,11 @@ Start where you are. Use the space you have. Build the habit.
 ### Want More Practical Advice for Real Kenyan Life?
 
 Explore more SmartLukuFitness guides:
-- 🥗 **Nutrition**: [5 Quick Budget Snacks for Busy Days in Kenya](https://missynancy.github.io/Luku/posts/quick-budget-snacks-kenya)
 - 👔 **Style**: [Smart Office Outfit Guide for Kenyan Professionals](https://missynancy.github.io/Luku/posts/smart-office-outfit-guide-kenyan-professionals)
-- 💪 **Fitness**: [Explore All SmartLuku Fitness Guides](https://missynancy.github.io/Luku/fitness)
+- 🏃 **Fitness**: [5 Living Room Exercises for Core Strength](https://missynancy.github.io/Luku/posts/living-room-exercises-belly-fat)
+- 💡 **Lifestyle**: [5 Sunday Habits for a Productive Working Week](https://missynancy.github.io/Luku/posts/weekly-workday-prep-routine)
 
-Follow SmartLukuFitness on social media for daily tips on fitness, nutrition, and budget-friendly Kenyan lifestyle!
+Follow SmartLukuFitness for practical tips on style, fitness, and everyday professional lifestyle!
 
 ---
 

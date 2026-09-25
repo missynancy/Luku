@@ -2,20 +2,36 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
-const posts = (await getCollection('posts')).filter((post) => !post.data.draft && post.data.category === 'Fitness').sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
-const focusAreas = ['Home Workouts', 'Strength', 'Weight Loss', 'Beginner Fitness', 'Mobility', 'Workout Routines', 'Fitness Habits'];
+const posts = (await getCollection('posts')).filter(
+  (post) => !post.data.draft && post.data.category === 'Fitness'
+).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const focusAreas = ['30-Minute Full Body', 'No-Equipment Workouts', 'Home Workouts', 'Beginner Workouts', 'Workday Movement', 'Mobility', 'Weekly Workout Routines'];
 ---
-<BaseLayout title="Fitness" description="Practical Kenyan fitness guidance on home workouts, strength, weight loss, and sustainable routines for everyday life.">
+<BaseLayout title="Fitness — 30-Minute Workouts for Busy Professionals" description="Practical 30-minute workouts, no-equipment home routines, workday mobility, and sustainable movement habits for busy professionals in Kenya.">
   <section class="section">
     <div class="container">
       <div class="page-intro">
         <p class="eyebrow">FITNESS</p>
-        <h1>Move better. Get stronger. Build sustainable habits.</h1>
-        <p>SmartLukuFitness keeps fitness practical: home-friendly workouts, manageable routines, and realistic habits that work around work, family, and a busy schedule.</p>
+        <h1>30-Minute Fitness for Busy Professionals</h1>
+        <p>You don't need hours in the gym to make movement part of your week. SmartLukuFitness focuses on practical, time-efficient routines: home-friendly workouts, no-equipment sessions, and workday mobility that fit around busy working schedules.</p>
       </div>
 
-      <div class="category-cloud" aria-label="Fitness categories">
+      <div class="category-cloud" aria-label="Fitness topics">
         {focusAreas.map((item) => <span class="tag">{item}</span>)}
+      </div>
+
+      <div class="feature-highlight" style="margin-bottom: 2rem;">
+        <p class="eyebrow">Practical Movement Philosophy</p>
+        <h2 style="margin-top: 0.3rem;">Workday Movement That Fits Your Life</h2>
+        <p>
+          Say goodbye to gym commutes and unrealistic two-hour routines. Thirty minutes of focused movement 3 to 4 times a week is all it takes to build real stamina, protect desk posture, and stay consistently energized.
+        </p>
+      </div>
+
+      <div class="section-heading">
+        <p class="eyebrow">Fitness guides &amp; routines</p>
+        <h2>Workouts &amp; Movement Plans</h2>
       </div>
 
       <div class="grid">

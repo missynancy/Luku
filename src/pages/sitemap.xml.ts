@@ -6,7 +6,18 @@ const basePath = '/Luku';
 export async function GET() {
   const posts = (await getCollection('posts')).filter((post) => !post.data.draft);
 
-  const staticPages = ['', 'nutrition', 'fitness', 'style', 'about', 'contact', 'guide', 'shopping-checklist'];
+  const staticPages = [
+    '',
+    'style',
+    'style/corporate-wear',
+    'style/smart-casual',
+    'style/modest-wear',
+    'fitness',
+    'lifestyle',
+    'design-journey',
+    'about',
+    'contact'
+  ];
 
   const staticUrls = staticPages.map((page) => {
     const path = page ? `${basePath}/${page}/` : `${basePath}/`;

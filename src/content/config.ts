@@ -6,7 +6,7 @@ const posts = defineCollection({
     title: z.string(),
     description: z.string(),
     pubDate: z.coerce.date(),
-    category: z.enum(['Nutrition', 'Fitness', 'Style']),
+    category: z.enum(['Style', 'Fitness', 'Lifestyle']),
     tags: z.array(z.string()).default([]),
     readTime: z.string().default('4 min read'),
     image: z.string().optional(),

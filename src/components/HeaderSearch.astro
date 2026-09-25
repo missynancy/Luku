@@ -1,0 +1,127 @@
+---
+---
+<div class="header-search-wrap">
+  <form class="search-form" action={`${import.meta.env.BASE_URL}/search/`} method="get" id="header-search-form">
+    <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true">
+      <circle cx="11" cy="11" r="8"></circle>
+      <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+    </svg>
+    <input
+      type="search"
+      name="q"
+      class="search-input"
+      placeholder="Search style, fitness..."
+      aria-label="Search website content"
+      autocomplete="off"
+      id="header-search-input"
+    />
+    <div class="search-results-dropdown" id="header-search-dropdown" role="listbox" aria-label="Search suggestions"></div>
+  </form>
+</div>
+
+<script>
+  let searchIndex: any[] | null = null;
+  let isLoadingIndex = false;
+
+  const form = document.getElementById('header-search-form') as HTMLFormElement | null;
+  const input = document.getElementById('header-search-input') as HTMLInputElement | null;
+  const dropdown = document.getElementById('header-search-dropdown') as HTMLDivElement | null;
+
+  async function loadSearchIndex() {
+    if (searchIndex || isLoadingIndex) return;
+    isLoadingIndex = true;
+    try {
+      const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
+      const res = await fetch(`${baseUrl}/search.json`);
+      if (res.ok) {
+        searchIndex = await res.json();
+      }
+    } catch (e) {
+      console.error('Failed to load search index', e);
+    } finally {
+      isLoadingIndex = false;
+    }
+  }
+
+  function performSearch(query: string) {
+    if (!dropdown || !searchIndex) return;
+
+    const trimmed = query.trim().toLowerCase();
+    if (!trimmed) {
+      dropdown.innerHTML = '';
+      dropdown.classList.remove('active');
+      return;
+    }
+
+    const terms = trimmed.split(/\s+/);
+    const results = searchIndex.filter((item) => {
+      const searchableText = `${item.title} ${item.category} ${item.tags.join(' ')} ${item.description} ${item.body || ''}`.toLowerCase();
+      return terms.every((term) => searchableText.includes(term));
+    });
+
+    if (results.length === 0) {
+      dropdown.innerHTML = `<div class="search-no-results">No results for '<strong>${escapeHtml(query)}</strong>'</div>`;
+    } else {
+      const topResults = results.slice(0, 5);
+      const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
+      const searchUrl = `${baseUrl}/search/?q=${encodeURIComponent(query)}`;
+
+      const html = topResults
+        .map(
+          (item) => `
+        <a href="${item.url}" class="search-result-item" role="option">
+          <img src="${item.image}" alt="" class="search-result-thumb" loading="lazy" />
+          <div class="search-result-info">
+            <div class="search-result-title">${escapeHtml(item.title)}</div>
+            <div class="search-result-meta">
+              <span class="search-result-cat">${escapeHtml(item.category)}</span> • ${escapeHtml(item.description.slice(0, 55))}...
+            </div>
+          </div>
+        </a>
+      `
+        )
+        .join('');
+
+      dropdown.innerHTML = `
+        ${html}
+        <a href="${searchUrl}" class="search-see-all">See all ${results.length} results for '${escapeHtml(query)}' →</a>
+      `;
+    }
+
+    dropdown.classList.add('active');
+  }
+
+  function escapeHtml(str: string) {
+    return str
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
+  }
+
+  input?.addEventListener('focus', () => {
+    loadSearchIndex();
+    if (input.value.trim()) {
+      performSearch(input.value);
+    }
+  });
+
+  input?.addEventListener('input', () => {
+    loadSearchIndex();
+    performSearch(input.value);
+  });
+
+  document.addEventListener('click', (e) => {
+    if (form && !form.contains(e.target as Node)) {
+      dropdown?.classList.remove('active');
+    }
+  });
+
+  form?.addEventListener('submit', (e) => {
+    const q = input?.value.trim();
+    if (!q) {
+      e.preventDefault();
+    }
+  });
+</script>

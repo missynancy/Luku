@@ -1,0 +1,147 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Search Results — SmartLukuFitness" description="Search articles, guides, style categories, and design journey notes on SmartLukuFitness.">
+  <section class="section">
+    <div class="container">
+      <div class="page-intro">
+        <p class="eyebrow">SITE SEARCH</p>
+        <h1 id="search-title">Search Results</h1>
+        <p id="search-subtitle">Search across style guides, corporate wear, fitness routines, lifestyle systems, and design journey notes.</p>
+      </div>
+
+      <div class="search-page-form-wrap" style="margin-bottom: 2rem;">
+        <form action={`${import.meta.env.BASE_URL}/search/`} method="get" id="full-search-form" style="display: flex; gap: 0.75rem; max-width: 540px;">
+          <input
+            type="search"
+            name="q"
+            id="full-search-input"
+            class="search-input"
+            style="width: 100%; flex: 1; padding: 0.75rem 1.25rem; font-size: 1rem; border-radius: 12px;"
+            placeholder="Search keywords (e.g. corporate, blazer, men, 30-minute)..."
+          />
+          <button type="submit" class="btn btn-primary" style="border-radius: 12px; padding: 0.75rem 1.5rem;">Search</button>
+        </form>
+      </div>
+
+      <div id="search-results-container">
+        <div class="card" style="padding: 2rem; text-align: center; color: var(--color-muted);">
+          Loading search index...
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  async function initSearchPage() {
+    const params = new URLSearchParams(window.location.search);
+    const query = params.get('q') || '';
+
+    const titleEl = document.getElementById('search-title');
+    const subtitleEl = document.getElementById('search-subtitle');
+    const inputEl = document.getElementById('full-search-input') as HTMLInputElement | null;
+    const container = document.getElementById('search-results-container');
+
+    if (inputEl) {
+      inputEl.value = query;
+    }
+
+    if (!query.trim()) {
+      if (titleEl) titleEl.textContent = 'Search SmartLukuFitness';
+      if (subtitleEl) subtitleEl.textContent = 'Type a keyword above to search style guides, fitness routines, lifestyle habits, and design notes.';
+      if (container) {
+        container.innerHTML = `
+          <div class="card" style="padding: 2.5rem; text-align: center;">
+            <p style="margin: 0; font-size: 1.05rem;">Try searching for terms like:</p>
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; margin-top: 1rem;">
+              <a href="?q=corporate" class="tag">#corporate</a>
+              <a href="?q=blazer" class="tag">#blazer</a>
+              <a href="?q=men" class="tag">#men</a>
+              <a href="?q=women" class="tag">#women</a>
+              <a href="?q=30-minute" class="tag">#30-minute workout</a>
+              <a href="?q=capsule" class="tag">#capsule wardrobe</a>
+              <a href="?q=modest" class="tag">#modest wear</a>
+              <a href="?q=pattern" class="tag">#pattern drafting</a>
+            </div>
+          </div>
+        `;
+      }
+      return;
+    }
+
+    if (titleEl) titleEl.textContent = `Search Results for "${query}"`;
+
+    try {
+      const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
+      const res = await fetch(`${baseUrl}/search.json`);
+      if (!res.ok) throw new Error('Failed to fetch index');
+
+      const items = await res.json();
+      const terms = query.toLowerCase().trim().split(/\s+/);
+
+      const matches = items.filter((item: any) => {
+        const text = `${item.title} ${item.category} ${item.tags.join(' ')} ${item.description} ${item.body || ''}`.toLowerCase();
+        return terms.every((term) => text.includes(term));
+      });
+
+      if (subtitleEl) {
+        subtitleEl.textContent = `Found ${matches.length} ${matches.length === 1 ? 'match' : 'matches'} for "${query}"`;
+      }
+
+      if (!container) return;
+
+      if (matches.length === 0) {
+        container.innerHTML = `
+          <div class="card" style="padding: 3rem; text-align: center;">
+            <h3 style="margin-top: 0; font-size: 1.4rem;">No results found for "${escapeHtml(query)}"</h3>
+            <p style="color: var(--color-muted); max-width: 500px; margin: 0.5rem auto 1.5rem;">
+              We couldn't find any articles or pages matching your search. Check for typos or try searching for broader keywords.
+            </p>
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem;">
+              <a href="?q=corporate" class="tag">#corporate</a>
+              <a href="?q=smart casual" class="tag">#smart casual</a>
+              <a href="?q=fitness" class="tag">#fitness</a>
+              <a href="?q=routines" class="tag">#routines</a>
+            </div>
+          </div>
+        `;
+      } else {
+        const cardsHtml = matches
+          .map(
+            (item: any) => `
+          <article class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <p class="post-meta"><span class="card-kicker">${escapeHtml(item.category)}</span></p>
+              <h3 style="margin: 0.3rem 0 0.5rem;"><a href="${item.url}">${escapeHtml(item.title)}</a></h3>
+              <p>${escapeHtml(item.description)}</p>
+            </div>
+            <div style="margin-top: 1rem;">
+              <a href="${item.url}" class="btn btn-secondary" style="font-size: 0.85rem; padding: 0.4rem 0.9rem;">Read guide →</a>
+            </div>
+          </article>
+        `
+          )
+          .join('');
+
+        container.innerHTML = `<div class="grid">${cardsHtml}</div>`;
+      }
+    } catch (e) {
+      console.error(e);
+      if (container) {
+        container.innerHTML = `<div class="card" style="padding: 2rem; color: red;">Error loading search results. Please try again.</div>`;
+      }
+    }
+  }
+
+  function escapeHtml(str: string) {
+    return str
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
+  }
+
+  initSearchPage();
+</script>

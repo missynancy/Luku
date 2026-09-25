@@ -19,6 +19,39 @@ const posts = (await getCollection('posts')).filter(
         </p>
       </div>
 
+      <div class="section-heading" style="margin-top: 2rem;">
+        <p class="eyebrow">Gender split</p>
+        <h2>Choose Your Style</h2>
+      </div>
+
+      <div class="gender-choice-grid">
+        <article class="gender-choice-card">
+          <div class="gender-choice-image-wrap">
+            <img src={`${import.meta.env.BASE_URL}/images/office-capsule-hero-camel.jpg`} alt="Men's corporate wear styling" />
+            <span class="gender-badge">Men</span>
+          </div>
+          <div class="gender-choice-content">
+            <h3>Men's Corporate Wear</h3>
+            <p class="gender-choice-summary">Shirts • Trousers • Blazers • Shoes • Accessories</p>
+            <p>Tailored suits, crisp dress shirts, formal trousers, leather shoes, ties, and professional office layering for men.</p>
+            <a href={`${import.meta.env.BASE_URL}/style/corporate-wear/men/`} class="btn btn-primary">Explore Men's Corporate Wear →</a>
+          </div>
+        </article>
+
+        <article class="gender-choice-card">
+          <div class="gender-choice-image-wrap">
+            <img src={`${import.meta.env.BASE_URL}/images/office-capsule-brown-blazer.jpg`} alt="Women's corporate wear styling" />
+            <span class="gender-badge">Women</span>
+          </div>
+          <div class="gender-choice-content">
+            <h3>Women's Corporate Wear</h3>
+            <p class="gender-choice-summary">Blouses • Trousers • Skirts • Blazers • Shoes • Accessories</p>
+            <p>Tailored blazers, elegant blouses, structured trousers, pencil skirts, office heels, and executive outfits for women.</p>
+            <a href={`${import.meta.env.BASE_URL}/style/corporate-wear/women/`} class="btn btn-primary">Explore Women's Corporate Wear →</a>
+          </div>
+        </article>
+      </div>
+
       <div class="feature-highlight" style="margin-bottom: 2rem;">
         <h3>Corporate Wardrobe Essentials</h3>
         <ul style="margin: 0.5rem 0 0; padding-left: 1.25rem;">

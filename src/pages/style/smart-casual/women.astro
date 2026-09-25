@@ -1,0 +1,22 @@
+---
+import GenderStyleLayout from '../../../components/GenderStyleLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('posts')).filter(
+  (post) => !post.data.draft && post.data.category === 'Style' && (
+    post.data.tags?.some((t) => ['smart casual', 'styling-tips', 'budget-fashion'].includes(t.toLowerCase()))
+  )
+);
+
+const topics = ['Elevated Tops & Shirts', 'Tailored Trousers', 'Casual Blazers & Cardigans', 'Smart Flats & Mules', 'Work-to-Weekend Styling'];
+---
+<GenderStyleLayout
+  category="Smart Casual"
+  categorySlug="smart-casual"
+  gender="Women"
+  genderSlug="women"
+  heroImage="nancy-smart-luku.webp"
+  description="Effortless smart casual outfits for women — Friday workwear, relaxed blazers, polished flats, and versatile combinations for modern professionals."
+  topics={topics}
+  posts={posts}
+/>

@@ -1,0 +1,22 @@
+---
+import GenderStyleLayout from '../../../components/GenderStyleLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('posts')).filter(
+  (post) => !post.data.draft && post.data.category === 'Style' && (
+    post.data.tags?.some((t) => ['women', 'office wear', 'capsule-wardrobe'].includes(t.toLowerCase()))
+  )
+);
+
+const topics = ['Structured Blazers', 'Silk & Cotton Blouses', 'Tailored Trousers', 'Pencil & A-Line Skirts', 'Block Heels & Loafers', 'Work Totes'];
+---
+<GenderStyleLayout
+  category="Corporate Wear"
+  categorySlug="corporate-wear"
+  gender="Women"
+  genderSlug="women"
+  heroImage="office-capsule-brown-blazer.jpg"
+  description="Professional corporate wear for women — elegant blazers, tailored trousers, silk and cotton blouses, skirts, and executive wardrobe building."
+  topics={topics}
+  posts={posts}
+/>

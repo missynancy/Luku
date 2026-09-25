@@ -1,0 +1,20 @@
+---
+import GenderStyleLayout from '../../../components/GenderStyleLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('posts')).filter(
+  (post) => !post.data.draft && post.data.category === 'Style' && post.data.tags?.some((t) => t.toLowerCase().includes('men'))
+);
+
+const topics = ['Polo Shirts', 'Button-Down Shirts', 'Chinos & Smart Trousers', 'Unstructured Blazers', 'Casual Loafers & Clean Sneakers'];
+---
+<GenderStyleLayout
+  category="Smart Casual"
+  categorySlug="smart-casual"
+  gender="Men"
+  genderSlug="men"
+  heroImage="three-ways-trousers-look-one.jpg"
+  description="Polished smart casual outfits for men — Friday office dressing, work-to-weekend combinations, polos, chinos, and unstructured blazers."
+  topics={topics}
+  posts={posts}
+/>

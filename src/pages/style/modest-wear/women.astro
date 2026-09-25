@@ -1,0 +1,20 @@
+---
+import GenderStyleLayout from '../../../components/GenderStyleLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('posts')).filter(
+  (post) => !post.data.draft && post.data.category === 'Style' && post.data.tags?.some((t) => t.toLowerCase().includes('modest'))
+);
+
+const topics = ['Midi & Maxi Skirts', 'Wide-Leg Trousers', 'Duster Coats & Trench Coats', 'High Neck & Full Sleeves', 'Layering Formulas'];
+---
+<GenderStyleLayout
+  category="Modest Wear"
+  categorySlug="modest-wear"
+  gender="Women"
+  genderSlug="women"
+  heroImage="office-capsule-skirt-combo.png"
+  description="Elegant modest wear for women — midi and maxi skirts, fluid trousers, longline coats, full-coverage tops, and polished modest office outfits."
+  topics={topics}
+  posts={posts}
+/>

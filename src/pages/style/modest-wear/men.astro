@@ -1,0 +1,20 @@
+---
+import GenderStyleLayout from '../../../components/GenderStyleLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('posts')).filter(
+  (post) => !post.data.draft && post.data.category === 'Style' && post.data.tags?.some((t) => t.toLowerCase().includes('modest'))
+);
+
+const topics = ['Long-Sleeve Button Downs', 'Relaxed Tailored Trousers', 'Longline Outerwear', 'High Neck & Layering', 'Formal Shoes'];
+---
+<GenderStyleLayout
+  category="Modest Wear"
+  categorySlug="modest-wear"
+  gender="Men"
+  genderSlug="men"
+  heroImage="office-capsule-flatlay-10pieces.jpg"
+  description="Dignified modest wear for men — long-sleeve shirts, relaxed tailored trousers, longline jackets, and modest professional attire."
+  topics={topics}
+  posts={posts}
+/>

@@ -1,0 +1,90 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+interface Props {
+  category: string;
+  categorySlug: string;
+  gender: 'Men' | 'Women';
+  genderSlug: 'men' | 'women';
+  heroImage?: string;
+  description: string;
+  topics: string[];
+  posts?: any[];
+}
+
+const {
+  category,
+  categorySlug,
+  gender,
+  heroImage = 'office-capsule-hero-camel.jpg',
+  description,
+  topics,
+  posts = []
+} = Astro.props;
+
+const pageTitle = `${gender}'s ${category} — Style Guide & Outfits`;
+---
+<BaseLayout title={pageTitle} description={description}>
+  <section class="section">
+    <div class="container">
+      <div class="style-hero-grid">
+        <div>
+          <p class="eyebrow">
+            <a href={`${import.meta.env.BASE_URL}/style/`}>Style</a> / 
+            <a href={`${import.meta.env.BASE_URL}/style/${categorySlug}/`}>{category}</a> / 
+            {gender}
+          </p>
+          <h1>{gender}'s {category}</h1>
+          <p>{description}</p>
+        </div>
+        <div class="style-hero-image-wrap">
+          <img src={`${import.meta.env.BASE_URL}/images/${heroImage}`} alt={`${gender}'s ${category} styling preview`} class="style-hero-image" />
+        </div>
+      </div>
+
+      <div class="category-cloud" aria-label={`${gender}'s ${category} topics`}>
+        {topics.map((item) => <span class="tag">{item}</span>)}
+      </div>
+
+      <div class="section-heading" style="margin-top: 2rem;">
+        <p class="eyebrow">{gender}'s Collection</p>
+        <h2>{gender}'s {category} Guides &amp; Inspiration</h2>
+      </div>
+
+      {posts.length > 0 ? (
+        <div class="grid">
+          {posts.map((post) => (
+            <article class="card">
+              <p class="post-meta">{post.data.category} • {post.data.readTime}</p>
+              <h3><a href={`${import.meta.env.BASE_URL}/posts/${post.slug}/`}>{post.data.title}</a></h3>
+              <p>{post.data.description}</p>
+              <div class="post-tags">
+                {post.data.tags.slice(0, 3).map((tag: string) => <span class="tag">#{tag}</span>)}
+              </div>
+            </article>
+          ))}
+        </div>
+      ) : (
+        <div class="card" style="padding: 2.5rem; text-align: center; background: var(--color-surface);">
+          <h3 style="margin-top: 0;">Dedicated {gender}'s {category} Content Coming Soon</h3>
+          <p style="max-width: 600px; margin: 0.5rem auto 1.5rem; color: var(--color-muted);">
+            We are curating specific outfit combinations, capsule wardrobe guides, fit tips, and shopping strategies for {gender.toLowerCase()}'s {category.toLowerCase()}.
+          </p>
+          <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem;">
+            {topics.map((topic) => (
+              <span class="tag" style="background: rgba(255,95,46,0.08); color: var(--color-primary-dark) !important;">
+                {topic}
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <div style="margin-top: 2.5rem;">
+        <a href={`${import.meta.env.BASE_URL}/style/${categorySlug}/`} class="btn btn-secondary">
+          ← Back to {category} Hub
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

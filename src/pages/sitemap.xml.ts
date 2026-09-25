@@ -10,13 +10,20 @@ export async function GET() {
     '',
     'style',
     'style/corporate-wear',
+    'style/corporate-wear/men',
+    'style/corporate-wear/women',
     'style/smart-casual',
+    'style/smart-casual/men',
+    'style/smart-casual/women',
     'style/modest-wear',
+    'style/modest-wear/men',
+    'style/modest-wear/women',
     'fitness',
     'lifestyle',
     'design-journey',
     'about',
-    'contact'
+    'contact',
+    'search'
   ];
 
   const staticUrls = staticPages.map((page) => {

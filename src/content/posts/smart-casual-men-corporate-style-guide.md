@@ -6,7 +6,7 @@ pubDate: 2026-09-29
 category: "Style"
 tags: ["mens style", "smart casual", "corporate wear", "kupiga luku"]
 readTime: "5 min read"
-image: "/images/blog/smart-casual-look-3-henley-loafers.png"
+image: "smart-casual-look-3-henley-loafers.png"
 imageAlt: "Man in an olive green blazer, cream t-shirt, and tan trousers standing in a home office"
 featured: true
 draft: false
@@ -58,7 +58,7 @@ Check the shoulders first. They should sit neatly without pulling or hanging awk
 
 A good fit can make a secondhand blazer look much more expensive than it actually is.
 
-![Man in olive blazer, cream t-shirt, tan trousers, and white sneakers standing in a home office](/images/blog/smart-casual-look-1-olive-blazer.png)
+![Man in olive blazer, cream t-shirt, tan trousers, and white sneakers standing in a home office](/Luku/images/smart-casual-look-1-olive-blazer.png)
 *Cream T-shirt + olive blazer + tailored trousers — the easiest smart-casual combination to start with.*
 
 ### 2. Keep What You Wear Underneath Simple
@@ -87,7 +87,7 @@ You can wear the same T-shirt and blazer with two different pairs of trousers an
 
 That's why fit matters so much.
 
-![Man in navy blazer, white t-shirt, charcoal trousers, and white sneakers standing in a home office](/images/blog/smart-casual-look-2-navy-blazer.png)
+![Man in navy blazer, white t-shirt, charcoal trousers, and white sneakers standing in a home office](/Luku/images/smart-casual-look-2-navy-blazer.png)
 *White sneakers + smart charcoal trousers + navy blazer — same formula, different colour story.*
 
 ### 4. Finish With Clean Shoes
@@ -104,7 +104,7 @@ Sometimes it's not the style of the shoe that's the problem.
 
 **It's the condition.**
 
-![Man in a burgundy henley and charcoal trousers with brown leather loafers, leaning against a desk](/images/blog/smart-casual-look-3-henley-loafers.png)
+![Man in a burgundy henley and charcoal trousers with brown leather loafers, leaning against a desk](/Luku/images/smart-casual-look-3-henley-loafers.png)
 *Plain henley + structured trousers + loafers — no blazer needed when the fit does the work.*
 
 ## A Simple Outfit You Can Try
